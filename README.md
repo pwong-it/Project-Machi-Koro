@@ -1,6 +1,8 @@
 # Machi Koro
 The final project of my Software Engineering Immersive Course at General Aseembly. As the final project, I would like to recreate a board game called Machi Koro that my board game crew loves to play. This is for education purposes only and because of my passion for spending great times with friends. Images of the cards have been taken online and modified to suit my version. <br/> 
 
+How the game is set up and the game play may vary to the original game as I am designing this based on how I play the game. For example, not all cards available for purchase is shown face up. This way, there is a bit more luck involved. <br/> 
+
 Date Received: <br/>
 Date Due: 
 
@@ -9,7 +11,7 @@ Date Due:
 ## :page_facing_up: About
 The below are the criteria set out by the course that I will need to meet:
 ### Technical Requirements
-
+-   
 
 
 ### Necessary Deliverables (Minimum Viable Product)
@@ -26,14 +28,58 @@ The below are the criteria set out by the course that I will need to meet:
  
 ## :pencil2: Planning & Problem Solving
 ### General Plan
-![Planning Photo 1]()
-I like to start off all projects with pen and paper. I think it lets me be more free and less constrained to ideas. 
+![Planning Photo 1](/images/Planning_01.jpg)
+Some basic rules on how to play the game. More for me to process the mechanics and breaking the game down a bit for planning. 
+
+Wireframing / Conceptual Design of website <br/> 
+![Planning Photo 2](/images/Planning_02.jpg)
+
+### Win Conditions
+The aim of the game is to be the first to construct all four landmarks. They can be constructed in any order.
+    *Logic: Players will be objects and have landmark keys set to false. As they buy the landmarks, they will be switched to true. Once all landmark keys are true, then they will be the winner.*
+
+### Players
+The game is a 2-4 player game. Generally it is more enjoyable with more players. 
+    *Logic: Players will be able to input their names in the welcome screen. Below is what I envision the player will look like.
+
+```
+let player1 = {
+    name: "",
+    coins: 3,
+    establishments: ["1B", "2-3G"],
+    lmTrainStation: false,
+    lmShoppingMall: false,
+    lmAmusementPark: false,
+    lmRadioTower: false,
+}
+```
+
+### Landmarks Cards
+Breakdown of the Landmark Cards:
+![Planning Photo 3](/images/Planning_03.jpg)
+Front of Landmark Card is shown when it is constructed, back when not constructed
+![Planning Photo 4](/images/Planning_04.jpg)
+
+Each Landmark and their effects when constructed:<br/> 
+**Train Station**<br/> 
+Players will be able to choose at the beginning of their turn to roll 1 or 2 dice. 
+
+
+### Establishment Cards
+
+### Dice & Activation
+
+
+
+### Coins
+
+### Starting Set-up
+
 
 Use the Problem Solving Process framework to break down the project into manageable components. From Technical Requirements & Necessary Deliverables
 1.  Keywords 
     -
 
-Wireframing / Conceptual Design of website - Used Canva<br/> 
 
 
 2.  Tasks <br/>
