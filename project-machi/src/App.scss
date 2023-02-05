@@ -1,5 +1,19 @@
+* {
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+}
+
 .App {
-  text-align: center;
+  background: url("./components/images/machi\ background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-position: center center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .App-logo {
@@ -32,6 +46,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

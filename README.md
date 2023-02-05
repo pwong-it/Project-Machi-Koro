@@ -12,16 +12,16 @@ Date Due: 10/2/2023
 The below are the criteria set out by myself and the course that I will need to meet:
 
 ### Necessary Deliverables 
--   A link to your hosted working app in the URL section of your GitHub repo
--   A git repository hosted on GitHub, with a link to your hosted project, and frequent commits dating back to the very beginning of the project
--   A readme.md file with:
+-   :white_check_mark: A link to your hosted working app in the URL section of your GitHub repo
+-   :white_check_mark: A git repository hosted on GitHub, with a link to your hosted project, and frequent commits dating back to the very beginning of the project
+-   :white_check_mark: A readme.md file with:
     -   An embedded screenshot of the app
-    -   Explanations of the technologies used
-    -   A couple paragraphs about the general approach you took
+    -   :white_check_mark: Explanations of the technologies used
+    -   :white_check_mark: A couple paragraphs about the general approach you took
     -   Installation instructions for any dependencies
     -   Link to your user stories – who are your users, what do they want, and why?
-    -   Link to your wireframes – sketches of major views / interfaces in your application
-    -   Link to your pitch deck – documentation of your wireframes, user stories, and proposed architecture
+    -   :white_check_mark: Link to your wireframes – sketches of major views / interfaces in your application
+    -   :white_check_mark: Link to your pitch deck – documentation of your wireframes, user stories, and proposed architecture
     -   Descriptions of any unsolved problems or major hurdles you had to overcome
 
 ### Technical Requirements (Minimum Viable Product)
@@ -52,6 +52,15 @@ Some basic rules on how to play the game. More for me to process the mechanics a
 Wireframing / Conceptual Design of website <br/> 
 ![Planning Photo 2](/README_images/Planning_02.jpg)
 
+Using Whimsical to wireframe what is required in the project:
+![Planning Photo 6](/README_images/Planning_06.png)
+![Planning Photo 7](/README_images/Planning_07.png)
+![Planning Photo 8](/README_images/Planning_08.png)
+
+Using Trello to Plan out tasks:
+![Planning Photo 9](/README_images/Planning_09.png)
+
+
 ### Win Conditions
 The aim of the game is to be the first to construct all four landmarks. They can be constructed in any order.
     *Logic: Players will be objects and have landmark keys set to false. As they buy the landmarks, they will be switched to true. Once all landmark keys are true, then they will be the winner.*
@@ -73,51 +82,42 @@ let player1 = {
 ```
 
 ### Landmarks Cards
-Breakdown of the Landmark Cards:
+Breakdown of the Landmark Cards:<br/> 
 ![Planning Photo 3](/README_images/Planning_03.png)
 Front of Landmark Card is shown when it is constructed, back when not constructed
 ![Planning Photo 4](/README_images/Planning_04.png)
 
-Each Landmark and their effects when constructed:<br/> 
-**Train Station**<br/> 
-Players will be able to choose at the beginning of their turn to roll 1 or 2 dice. 
-
-
 ### Establishment Cards
+![Planning Photo 5](/README_images/Planning_05.png)
+![Planning Photo 10](/README_images/Planning_10.png)
 
-### Dice & Activation
-
-
-
-### Coins
-
-### Starting Set-up
+### Game Flow
+![Planning Photo 11](/README_images/Planning_11.png)
 
 
-Use the Problem Solving Process framework to break down the project into manageable components. From Technical Requirements & Necessary Deliverables
-1.  Keywords 
-    -
+## Implementation - Coding Journey and debugging
+Below are some "highlights" where problems arose and how I dealt with this problems. <br/> 
 
+### Progress
 
-
-2.  Tasks <br/>
-    - :white_check_mark: Create homepage
-    <br/>
     
 
-3.  Implement - Coding Journey and debugging.<br/> 
-    Below are some "highlights" where problems arose and how I dealt with this problems. <br/> 
-
-    ### Progress
-    ![Progress 1](./images/Progress_01.png)
-    
-### Post-Development
+## Post-Development
 
 
 
 
 ## :rocket: Cool tech
+-   Trello - For project management
+-   Whimsical - Wireframing
+-   Canva - For Conceptual Design and graphics
+-   JavaScript - Language used
+-   React - Front-End Framework
+-   Surge - To deploy
+-   Photoshop - Image editing
 
+## References
+-   Game Rules and images - https://www.fgbradleys.com/rules/rules2/MachiKoro-rules.pdf
 
 
 ## :scream: Bugs to fix :bug:
