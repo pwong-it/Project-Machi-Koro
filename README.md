@@ -108,6 +108,20 @@ Checking image works well on phone:
 Creating the Home page and Game page. Creating the Routes for both: 
 ![Progress Photo 03](/README_images/Progress_03.png)
 
+Creating the Home Page buttons. These lead to different Modals:
+![Progress Photo 04](/README_images/Progress_04.png)
+
+How To Play Modal. Provided link at the bottom to link to the official rulebook
+![Progress Photo 05](/README_images/Progress_05.png)
+
+Start Modal. Users can select how many players will be playing.
+![Progress Photo 06](/README_images/Progress_06.png)
+
+I see some repetitiveness in this code. At this stage, I just want the code to work functionally first. I can refactor at a later stage. Ideally, I can place variables in the relevant modal sections:
+![Progress Photo 07](/README_images/Progress_07.png)
+Modal sections
+![Progress Photo 08](/README_images/Progress_08.png)
+
 
 ## Post-Development
 

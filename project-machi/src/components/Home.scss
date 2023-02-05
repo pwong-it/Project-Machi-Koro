@@ -11,5 +11,41 @@
     margin-top: 6rem;
     width: 60%;
   }
+}
 
+.home-btns {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 100px;
+
+  .button-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 12rem;
+    border-radius: 20px;
+    border: 3px solid white;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  div:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: 0.3s;
+  }
+
+  h1 {
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 5px;
+  }
+
+  .home-btn {
+    background-size: cover;
+    cursor: pointer;
+    padding: 60px;
+    background-color: rgba(0, 0, 0, 0);
+    margin-top: 20px;
+    border: none;
+  }
 }
