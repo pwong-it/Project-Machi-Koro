@@ -54,8 +54,8 @@ Wireframing / Conceptual Design of website <br/>
 
 Using Whimsical to wireframe what is required in the project:
 ![Planning Photo 6](/README_images/Planning_06.png)
-![Planning Photo 7](/README_images/Planning_07.png)
 ![Planning Photo 8](/README_images/Planning_08.png)
+![Planning Photo 7](/README_images/Planning_07.png)
 
 Using Trello to Plan out tasks:
 ![Planning Photo 9](/README_images/Planning_09.png)
@@ -84,7 +84,8 @@ let player1 = {
 ### Landmarks Cards
 Breakdown of the Landmark Cards:<br/> 
 ![Planning Photo 3](/README_images/Planning_03.png)
-Front of Landmark Card is shown when it is constructed, back when not constructed
+
+Front of Landmark Card is shown when it is constructed, back when not constructed<br/> 
 ![Planning Photo 4](/README_images/Planning_04.png)
 
 ### Establishment Cards
@@ -99,8 +100,14 @@ Front of Landmark Card is shown when it is constructed, back when not constructe
 Below are some "highlights" where problems arose and how I dealt with this problems. <br/> 
 
 ### Progress
+Modifying background image found on internet. Background will need a larger sized image.
+![Progress Photo 01](/README_images/Progress_01.png)
+Checking image works well on phone:
+![Progress Photo 02](/README_images/Progress_02.png)
 
-    
+Creating the Home page and Game page. Creating the Routes for both: 
+![Progress Photo 03](/README_images/Progress_03.png)
+
 
 ## Post-Development
 
@@ -115,6 +122,14 @@ Below are some "highlights" where problems arose and how I dealt with this probl
 -   React - Front-End Framework
 -   Surge - To deploy
 -   Photoshop - Image editing
+-   Sass (Syntactically Awesome Style Sheets) - Styling
+
+## Dependencies
+-   `npx create-react-app`
+-   `npm i react-router-dom`
+-   `npm i -g surge`
+-   `npm i sass`
+
 
 ## References
 -   Game Rules and images - https://www.fgbradleys.com/rules/rules2/MachiKoro-rules.pdf

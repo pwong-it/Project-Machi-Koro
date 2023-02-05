@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+}
+
+.machi-logo {
+  display: flex;
+  justify-content: center;
+
+  img {
+    margin-top: 6rem;
+    width: 60%;
+  }
+
+}
