@@ -3,10 +3,10 @@ The final project of my Software Engineering Immersive Course at General Aseembl
 
 How the game is set up and the game play may vary to the original game as I am designing this based on how I play the game. For example, not all cards available for purchase is shown face up. This way, there is a bit more luck involved. <br/> 
 
-Date Received: <br/>
-Date Due: 
+Date Received: 6/2/2023<br/>
+Date Due: 10/2/2023
 
-## :computer: [Click here]() to see my live project!
+## :computer: [Click here](https://project-machi.surge.sh/) to see my live project!
 
 ## :page_facing_up: About
 The below are the criteria set out by the course that I will need to meet:
