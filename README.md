@@ -9,30 +9,48 @@ Date Due: 10/2/2023
 ## :computer: [Click here](https://project-machi.surge.sh/) to see my live project!
 
 ## :page_facing_up: About
-The below are the criteria set out by the course that I will need to meet:
-### Technical Requirements
--   
+The below are the criteria set out by myself and the course that I will need to meet:
 
+### Necessary Deliverables 
+-   A link to your hosted working app in the URL section of your GitHub repo
+-   A git repository hosted on GitHub, with a link to your hosted project, and frequent commits dating back to the very beginning of the project
+-   A readme.md file with:
+    -   An embedded screenshot of the app
+    -   Explanations of the technologies used
+    -   A couple paragraphs about the general approach you took
+    -   Installation instructions for any dependencies
+    -   Link to your user stories – who are your users, what do they want, and why?
+    -   Link to your wireframes – sketches of major views / interfaces in your application
+    -   Link to your pitch deck – documentation of your wireframes, user stories, and proposed architecture
+    -   Descriptions of any unsolved problems or major hurdles you had to overcome
 
-### Necessary Deliverables (Minimum Viable Product)
+### Technical Requirements (Minimum Viable Product)
 -   The Game will need to be able to finish with one winner being determined.
--   All landmark abilities to be working successfully.
--   Blue and Red cards to be created. 
+-   Game will be 2-4 players
+-   Ability to input Player names at the start
+-   Two of the original 4 landmarks cards to be created. 
+-   Landmark cards will not have any abilities. Only first to purchase them all is enough to determine winner.
+-   Only Blue Cards to be created and in play.
 -   Game can be played locally on one computer.
+-   Finishing the game will display the winner.
+-   Only 1 dice to be in play.
+-   Only cards up from 1-6 will be purchasable. Some modifications to cards may be required for MVP. 
 
-
-### Extras
+### Post-MVP Extra Features
+-   Implement 2 dice function.
+-   Blue cards from 1-12
+-   Create Red Cards
+-   All 4 landmarks
 -   Green and Purple cards to be created.
 -   Game can be hosted and be played on multiple computers over the internet.
 
- 
 ## :pencil2: Planning & Problem Solving
 ### General Plan
-![Planning Photo 1](/images/Planning_01.jpg)
+![Planning Photo 1](/README_images/Planning_01.jpg)
 Some basic rules on how to play the game. More for me to process the mechanics and breaking the game down a bit for planning. 
 
 Wireframing / Conceptual Design of website <br/> 
-![Planning Photo 2](/images/Planning_02.jpg)
+![Planning Photo 2](/README_images/Planning_02.jpg)
 
 ### Win Conditions
 The aim of the game is to be the first to construct all four landmarks. They can be constructed in any order.
@@ -56,9 +74,9 @@ let player1 = {
 
 ### Landmarks Cards
 Breakdown of the Landmark Cards:
-![Planning Photo 3](/images/Planning_03.png)
+![Planning Photo 3](/README_images/Planning_03.png)
 Front of Landmark Card is shown when it is constructed, back when not constructed
-![Planning Photo 4](/images/Planning_04.png)
+![Planning Photo 4](/README_images/Planning_04.png)
 
 Each Landmark and their effects when constructed:<br/> 
 **Train Station**<br/> 
