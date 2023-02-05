@@ -1,10 +1,5 @@
 # Machi Koro
-The final project of my Software Engineering Immersive Course at General Aseembly. As the final project, I would like to recreate a board game called Machi Koro that my board game crew loves to play. This is for education purposes only and because of my passion for spending great times with friends. Images of the cards have been taken online and modified to suit my version. <br/> 
 
-How the game is set up and the game play may vary to the original game as I am designing this based on how I play the game. For example, not all cards available for purchase is shown face up. This way, there is a bit more luck involved. <br/> 
-
-Date Received: <br/>
-Date Due: 
 
 ## :computer: [Click here]() to see my live project!
 
