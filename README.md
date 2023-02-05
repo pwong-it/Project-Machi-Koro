@@ -39,7 +39,7 @@ The aim of the game is to be the first to construct all four landmarks. They can
     *Logic: Players will be objects and have landmark keys set to false. As they buy the landmarks, they will be switched to true. Once all landmark keys are true, then they will be the winner.*
 
 ### Players
-The game is a 2-4 player game. Generally it is more enjoyable with more players. 
+The game is a 2-4 player game. Generally it is more enjoyable with more players. <br/> 
     *Logic: Players will be able to input their names in the welcome screen. Below is what I envision the player will look like.
 
 ```
@@ -56,9 +56,9 @@ let player1 = {
 
 ### Landmarks Cards
 Breakdown of the Landmark Cards:
-![Planning Photo 3](/images/Planning_03.jpg)
+![Planning Photo 3](/images/Planning_03.png)
 Front of Landmark Card is shown when it is constructed, back when not constructed
-![Planning Photo 4](/images/Planning_04.jpg)
+![Planning Photo 4](/images/Planning_04.png)
 
 Each Landmark and their effects when constructed:<br/> 
 **Train Station**<br/> 
