@@ -27,6 +27,7 @@ function PlayerModal({ setPlayerModal, playerCount }) {
               <input
                 type="text"
                 placeholder={`Enter Player ${[index + 1]} Name`}
+                required
               />
             </div>
           ))}
