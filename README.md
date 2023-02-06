@@ -131,6 +131,12 @@ Displaying the different players. (just background colours at this stage).
 Able to link another Modal after the user clicks one of the buttons. The number of inputs is hardcoded at this stage. Next step is to render the corresponding number of inputs depending on what the user clicked. 
 ![Progress Photo 11](/README_images/Progress_11.png)
 
+Created an new array taking in the playerCount. Using map, I was able to create the corresponding number of inputs. Next step will be to taking the values of the inputs and assigning them to a playername variable.
+![Progress Photo 12](/README_images/Progress_12.png)
+
+Using the useNavigate function, I was able to use an onClick to go to the next page. This will be the page displaying the game board and where the action is!
+![Progress Photo 13](/README_images/Progress_13.png)
+
 
 ## Post-Development
 

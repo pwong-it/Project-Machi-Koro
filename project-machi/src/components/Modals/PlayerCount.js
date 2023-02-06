@@ -1,12 +1,16 @@
 import React from 'react'
 import "./Modal.scss"
+import { useNavigate } from 'react-router-dom'
 
-function PlayerModal({ setPlayerModal }) {
+function PlayerModal({ setPlayerModal, playerCount }) {
+
   const handleBackdropClick = (event) => {
     if (event.target === event.currentTarget) {
       setPlayerModal(false)
     }
   }
+  const navigate = useNavigate()
+  const goToGame = () => navigate('/game')
 
   return (
     <div className='backdrop' onClick={handleBackdropClick}>
@@ -18,17 +22,23 @@ function PlayerModal({ setPlayerModal }) {
           <h1>Enter Player Names</h1>
         </div>
         <div className="modal-body">
-          <div className="input-names">
-            <input type="text" />
-            <input type="text" />
-          </div>
-          <button className="start-btn">
-            START
-          </button>
+          {[...Array(playerCount)].map((_, index) => (
+            <div key={index}>
+              <input
+                type="text"
+                placeholder={`Enter Player ${[index + 1]} Name`}
+              />
+            </div>
+          ))}
 
+          < button
+            className="start-btn"
+            onClick={goToGame}>
+            START GAME
+          </button>
         </div>
       </div>
-    </div>
+    </div >
   )
 
 }

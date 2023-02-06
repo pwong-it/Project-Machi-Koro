@@ -9,20 +9,26 @@ function Home() {
   const [displayHowToModal, setHowToModal] = useState(false)
   const [displayStartModal, setStartModal] = useState(false)
   const [displayPlayerModal, setPlayerModal] = useState(false)
+  const [playerCount, setPlayerCount] = useState(0)
+
 
   return (
     <div className="Home">
       <section className="modal">
         <section>
-          {displayHowToModal && <HowToModal setHowToModal={setHowToModal} />}
+          {displayHowToModal && <HowToModal
+            setHowToModal={setHowToModal} />}
         </section>
         <section>
           {displayStartModal && <StartModal
             setStartModal={setStartModal}
-            setPlayerModal={setPlayerModal} />}
+            setPlayerModal={setPlayerModal}
+            setPlayerCount={setPlayerCount} />}
         </section>
         <section>
-          {displayPlayerModal && <PlayerModal setPlayerModal={setPlayerModal} />}
+          {displayPlayerModal && <PlayerModal
+            setPlayerModal={setPlayerModal}
+            playerCount={playerCount} />}
         </section>
       </section>
 

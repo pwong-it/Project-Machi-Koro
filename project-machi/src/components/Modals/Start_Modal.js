@@ -1,9 +1,10 @@
 import React from 'react'
+import { useState } from "react"
 import "./Modal.scss"
 
-function StartModal({ setStartModal, setPlayerModal }) {
-
+function StartModal({ setStartModal, setPlayerModal, setPlayerCount }) {
   const possiblePlayers = [2, 3, 4]
+
 
   const handleBackdropClick = (event) => {
     if (event.target === event.currentTarget) {
@@ -29,49 +30,13 @@ function StartModal({ setStartModal, setPlayerModal }) {
                   onClick={() => {
                     setPlayerModal(true)
                     setStartModal(false)
+                    setPlayerCount(count)
                   }}>
                 </button>
               </div>
               <h3>{`${count}P`}</h3>
             </div>
           ))}
-
-          {/* <div>
-            <div className="button-circles">
-              <button
-                className="player-btn"
-                onClick={() => {
-                  setPlayerModal(true)
-                  setStartModal(false)
-                }}>
-              </button>
-            </div>
-            <h3>2P</h3>
-          </div>
-
-          <div>
-            <div className="button-circles">
-              <button className="player-btn"
-                onClick={() => {
-                  setPlayerModal(true)
-                  setStartModal(false)
-                }}>
-              </button>
-            </div>
-            <h3>3P</h3>
-          </div>
-
-          <div>
-            <div className="button-circles">
-              <button className="player-btn"
-                onClick={() => {
-                  setPlayerModal(true)
-                  setStartModal(false)
-                }}>
-              </button>
-            </div>
-            <h3>4P</h3>
-          </div> */}
         </div>
       </div>
     </div>
