@@ -1,21 +1,31 @@
 import { useState } from "react"
-import machiLogo from './images/machi-white.png'
 import './Home.scss'
+import machiLogo from './images/machi-white.png'
 import HowToModal from "./Modals/How_To_Modal"
 import StartModal from "./Modals/Start_Modal"
+import PlayerModal from "./Modals/PlayerCount"
 
 function Home() {
   const [displayHowToModal, setHowToModal] = useState(false)
   const [displayStartModal, setStartModal] = useState(false)
+  const [displayPlayerModal, setPlayerModal] = useState(false)
 
   return (
     <div className="Home">
       <section className="modal">
-        {displayHowToModal && <HowToModal setHowToModal={setHowToModal} />}
+        <section>
+          {displayHowToModal && <HowToModal setHowToModal={setHowToModal} />}
+        </section>
+        <section>
+          {displayStartModal && <StartModal
+            setStartModal={setStartModal}
+            setPlayerModal={setPlayerModal} />}
+        </section>
+        <section>
+          {displayPlayerModal && <PlayerModal setPlayerModal={setPlayerModal} />}
+        </section>
       </section>
-      <section>
-        {displayStartModal && <StartModal setStartModal={setStartModal} />}
-      </section>
+
       <header className="machi-logo">
         <img src={machiLogo} alt="machi koro logo" />
       </header>

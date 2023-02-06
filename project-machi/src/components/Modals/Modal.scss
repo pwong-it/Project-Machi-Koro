@@ -37,7 +37,7 @@
   .player-btn {
     background-size: cover;
     cursor: pointer;
-    padding: 50px;
+    padding: 25%;
     background-color: rgba(0, 0, 0, 0);
     border: none;
   }
@@ -45,12 +45,29 @@
   .button-circles {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 100px;
+    height: 100px;
     border-radius: 50%;
     border: 2px solid black;
     background-color: white;
+
+    .a2-player {
+      background-color: blue;
+      width: 20px;
+    }
+
+    .a3-player {
+      background-color: red;
+    }
+
+    .a4-player {
+      background-color: green;
+    }
   }
+
+
 
   h3 {
     margin: 0;

@@ -18,7 +18,7 @@ The below are the criteria set out by myself and the course that I will need to 
     -   An embedded screenshot of the app
     -   :white_check_mark: Explanations of the technologies used
     -   :white_check_mark: A couple paragraphs about the general approach you took
-    -   Installation instructions for any dependencies
+    -   :white_check_mark: Installation instructions for any dependencies
     -   Link to your user stories – who are your users, what do they want, and why?
     -   :white_check_mark: Link to your wireframes – sketches of major views / interfaces in your application
     -   :white_check_mark: Link to your pitch deck – documentation of your wireframes, user stories, and proposed architecture
@@ -121,6 +121,15 @@ I see some repetitiveness in this code. At this stage, I just want the code to w
 ![Progress Photo 07](/README_images/Progress_07.png)
 Modal sections
 ![Progress Photo 08](/README_images/Progress_08.png)
+
+Refactoring the code for displaying the player buttons. In order to control the images that goes into each one, I used the count from the numPlayers array, and assigned the class for each one. This way I can use it to change the CSS. 
+![Progress Photo 10](/README_images/Progress_10.png)
+
+Displaying the different players. (just background colours at this stage). 
+![Progress Photo 09](/README_images/Progress_09.png)
+
+Able to link another Modal after the user clicks one of the buttons. The number of inputs is hardcoded at this stage. Next step is to render the corresponding number of inputs depending on what the user clicked. 
+![Progress Photo 11](/README_images/Progress_11.png)
 
 
 ## Post-Development
