@@ -1,8 +1,10 @@
 import React from 'react'
 import "./Modal.scss"
+import { useState } from "react"
 import { useNavigate } from 'react-router-dom'
 
 function PlayerModal({ setPlayerModal, playerCount }) {
+  const [playerNames, setPlayerNames] = useState([])
 
   const handleBackdropClick = (event) => {
     if (event.target === event.currentTarget) {
@@ -10,7 +12,15 @@ function PlayerModal({ setPlayerModal, playerCount }) {
     }
   }
   const navigate = useNavigate()
-  const goToGame = () => navigate('/game')
+  const goToGame = () => navigate('/game', { state: { playerNames } })
+
+  const handlePlayerName = (event, index) => {
+    const updatedNames = [...playerNames]
+    updatedNames[index] = event.target.value
+    setPlayerNames(updatedNames)
+  }
+
+  console.log(playerNames)
 
   return (
     <div className='backdrop' onClick={handleBackdropClick}>
@@ -27,7 +37,7 @@ function PlayerModal({ setPlayerModal, playerCount }) {
               <input
                 type="text"
                 placeholder={`Enter Player ${[index + 1]} Name`}
-                required
+                onChange={event => handlePlayerName(event, index)}
               />
             </div>
           ))}

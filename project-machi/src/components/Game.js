@@ -1,8 +1,11 @@
 import { useState } from "react"
 import './Game.scss'
 import { images } from '../machi_images'
+import { useLocation } from "react-router-dom"
 
-function Game() {
+function Game({ }) {
+  const location = useLocation()
+  const playerNames = location.state.playerNames
   const [playerState, setPlayerState] = useState({
     isActive: true,
     name: '',
@@ -11,6 +14,8 @@ function Game() {
     landmarkTrain: false,
     landmarkShop: false,
   })
+
+  console.log({ playerNames });
 
 
   return (
@@ -30,7 +35,10 @@ function Game() {
           </div>
           <div className="gamelog">
             <h1>GAME LOG</h1>
-            <p>hello</p>
+            <p>{playerNames[0]}</p>
+            <p>{playerNames[1]}</p>
+            <p>{playerNames[2]}</p>
+            <p>{playerNames[3]}</p>
           </div>
         </section>
       </section>

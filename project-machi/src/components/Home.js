@@ -1,6 +1,6 @@
 import { useState } from "react"
 import './Home.scss'
-import machiLogo from './images/machi-white.png'
+import { images } from '../machi_images'
 import HowToModal from "./Modals/How_To_Modal"
 import StartModal from "./Modals/Start_Modal"
 import PlayerModal from "./Modals/PlayerCount"
@@ -33,7 +33,7 @@ function Home() {
       </section>
 
       <header className="machi-logo">
-        <img src={machiLogo} alt="machi koro logo" />
+        <img src={images.machiLogo} alt="machi koro logo" />
       </header>
       <section className="home-btns">
         <div className="button-box">

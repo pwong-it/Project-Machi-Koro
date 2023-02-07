@@ -143,6 +143,18 @@ Game board set up. Next steps will be how players are stored and what the establ
 Pseudo coding the next steps:
 ![Progress Photo 15](/README_images/Progress_15.png)
 
+The steps I took to get transfer the playerNames state over to the Game.js file:<br/> 
+1.  Created a new useState for player
+2.  Created an onChange event for the input. This takes 2 arguments(what is changed, and also the index of the specific input)
+3.  The handlePlayerName function that first takes a copy of the current array using the spread operator (...) This is to ensure it does not reset the original array. Then assigns each index with the corresponding event(name change). Finally the playerNames state is updated.
+4.  import useNavigate in order to navigate to the Game.js route. (this was already imported previously for the goToGame onClick event)
+5.  goToGame function  now uses useNavigate to do two things. To go to the Game.js route, and also uses the state property of the navigate function. The state property can pass data to the component that is being navigated to. In our case, we want to pass the playerNames data to the Game.js file
+6.  import useLocation in order to receive the data being passed from the PlayerCount.js file
+7.  Declare playerNames in order to reference them in the Game.js file
+8.  Testing to see if it will show on the gameboard
+![Progress Photo 16](/README_images/Progress_16.png)
+![Progress Photo 17](/README_images/Progress_17.png)
+
 
 ## Post-Development
 
