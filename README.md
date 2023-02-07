@@ -19,19 +19,19 @@ The below are the criteria set out by myself and the course that I will need to 
     -   :white_check_mark: Explanations of the technologies used
     -   :white_check_mark: A couple paragraphs about the general approach you took
     -   :white_check_mark: Installation instructions for any dependencies
-    -   Link to your user stories – who are your users, what do they want, and why?
+    -   :white_check_mark: Link to your user stories – who are your users, what do they want, and why?
     -   :white_check_mark: Link to your wireframes – sketches of major views / interfaces in your application
     -   :white_check_mark: Link to your pitch deck – documentation of your wireframes, user stories, and proposed architecture
     -   Descriptions of any unsolved problems or major hurdles you had to overcome
 
 ### Technical Requirements (Minimum Viable Product)
 -   The Game will need to be able to finish with one winner being determined.
--   Game will be 2-4 players
--   Ability to input Player names at the start
+-   :white_check_mark: Game will be 2-4 players
+-   :white_check_mark: Ability to input Player names at the start
 -   Two of the original 4 landmarks cards to be created. 
 -   Landmark cards will not have any abilities. Only first to purchase them all is enough to determine winner.
 -   Only Blue Cards to be created and in play.
--   Game can be played locally on one computer.
+-   :white_check_mark: Game can be played locally on one computer.
 -   Finishing the game will display the winner.
 -   Only 1 dice to be in play.
 -   Only cards up from 1-6 will be purchasable. Some modifications to cards may be required for MVP. 
@@ -136,6 +136,12 @@ Created an new array taking in the playerCount. Using map, I was able to create 
 
 Using the useNavigate function, I was able to use an onClick to go to the next page. This will be the page displaying the game board and where the action is!
 ![Progress Photo 13](/README_images/Progress_13.png)
+
+Game board set up. Next steps will be how players are stored and what the establishment cards will be. I am thinking they will be hard coded objects. Unsure how to reference them at this stage.  
+![Progress Photo 14](/README_images/Progress_14.png)
+
+Pseudo coding the next steps:
+![Progress Photo 15](/README_images/Progress_15.png)
 
 
 ## Post-Development
