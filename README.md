@@ -155,6 +155,12 @@ The steps I took to get transfer the playerNames state over to the Game.js file:
 ![Progress Photo 16](/README_images/Progress_16.png)
 ![Progress Photo 17](/README_images/Progress_17.png)
 
+Wrote down the next steps and the game mechanics overall process. Detailed functions to come later.
+![Progress Photo 18](/README_images/Progress_18.png)
+
+Hard coded the establishment and landmark cards.
+![Progress Photo 19](/README_images/Progress_19.png)
+
 
 ## Post-Development
 
