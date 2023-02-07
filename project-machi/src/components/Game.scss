@@ -30,24 +30,27 @@
   }
 }
 
+// Right side of Gameboard
 .communal-side {
   display: flex;
   flex-direction: column;
-  // padding: 10px;
 
+  .shop-section,
+  .gamelog-section,
   .machi-logo {
     width: 100%;
   }
 
-  .dice-section {
-    height: 15%;
+  .dice-section,
+  .action-section {
+    height: 10%;
     display: flex;
     justify-content: space-around;
     align-items: center;
 
     .dice {
-      width: 70px;
-      height: 70px;
+      width: 50px;
+      height: 50px;
       background-color: white;
     }
   }
@@ -55,10 +58,27 @@
   .shop-section {
     height: 40%;
     background-color: rgba($color: white, $alpha: 0.15);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 
+    .card-slot {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .shop-card {
+      width: 80%;
+      height: 80%;
+      background-color: white;
+    }
   }
 
-  .gamelog {
+
+  .gamelog-section {
     height: 50%;
     margin-top: 20px;
     border-radius: 20px;

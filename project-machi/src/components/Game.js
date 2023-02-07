@@ -22,10 +22,15 @@ function Game({ }) {
   }
 
   useEffect(() => {
+    gamePlay()
     createPlayers()
+
   }, [])
-  console.log(players[0])
-  console.log(players[0].coins)
+
+
+
+  // useEffect(createPlayers, [])
+  // useEffect(gamePlay, [])
 
   // Establishment Cards
   const B1 = {
@@ -65,33 +70,65 @@ function Game({ }) {
     isEstablishment: false
   }
 
+  const cardsForPurchase = [LandmarkTrain, LandmarkShop, B1, B2, B3]
+
+  const gamePlay = () => {
+    const greeting = document.createElement('p')
+    greeting.innerHTML = `Welcome to Machi Koro!`
+    document.querySelector('.gamelog').appendChild(greeting)
+    console.log('hi')
+  }
+
+
+
   return (
     <div className="Game">
       <section className="game-board">
         <section className="player-boxes">
           <div></div>
         </section>
+
+
         <section className="communal-side">
           <img className="machi-logo" src={images.machiLogo} alt="machi koro logo" />
-          <div className="dice-section">
+
+          <div className="dice-section board-section">
             <div className="single-die dice">1</div>
             <div className="double-dice dice">2</div>
           </div>
-          <div className="shop-section">
 
+          <div className="shop-section board-section">
+            {cardsForPurchase.map(card => (
+              <div key={card.name}>
+                <div className="card-slot">
+                  <div
+                    className={`${card} shop-card`}>
+                  </div>
+                  <p>{`${card.name}`}</p>
+                </div>
+
+              </div>
+            ))}
           </div>
-          <div className="gamelog">
+
+          <div className="action-section board-section">
+            <button className="buy-btn action-btn">BUY</button>
+            <button className="pass-btn action-btn">PASS</button>
+          </div>
+
+          <div className="gamelog-section board-section">
             <h1>GAME LOG</h1>
-            <p>{playerNames[0]}</p>
-            <p>{playerNames[1]}</p>
-            <p>{playerNames[2]}</p>
-            <p>{playerNames[3]}</p>
+            <div className="gamelog"></div>
           </div>
         </section>
       </section>
     </div>
   )
+
+
 }
+
+
 
 export default Game
 
@@ -105,8 +142,8 @@ export default Game
 // Needs key value of isEsablishment: true/false
 
 // Create shop array. Array will only have 2 indexes.
-// Shop array will be a useState
 // As users purchase cards from the shop, the shop will pop the purchased card from its array, and push a new card randomly from a library
+// *For MVP, the cardsForPurchase will be a hard coded array.
 
 
 // Order of procedure
