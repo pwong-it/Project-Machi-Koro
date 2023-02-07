@@ -2,92 +2,117 @@ import { useState, useEffect } from "react"
 import './Game.scss'
 import { images } from '../machi_images'
 import { useLocation } from "react-router-dom"
+import { cards } from "./Cards"
 
 function Game({ }) {
   const location = useLocation()
   const playerNames = location.state.playerNames
 
   const [players, setPlayers] = useState([])
+  const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0)
+  const currentPlayer = players[currentPlayerIndex]
+
 
   const createPlayers = () => {
     const newPlayers = playerNames.map(name => ({
       name: name,
       coins: 3,
-      establishments: ["B1", "B2", "B3"],
+      establishments: [cards.B1, cards.B2, cards.B3],
       hasLandmarkTrain: false,
       hasLandmarkShop: false,
     }))
-
     setPlayers(newPlayers)
   }
 
-  useEffect(() => {
-    gamePlay()
-    createPlayers()
 
+
+  const greeting = () => {
+    if (currentPlayer) {
+      const greeting = document.createElement('p');
+      greeting.innerHTML = `Welcome to Machi Koro! The current player is ${currentPlayer.name}`;
+      document.querySelector('.gamelog').appendChild(greeting);
+    }
+  };
+
+
+  useEffect(() => {
+    createPlayers()
+    greeting()
   }, [])
 
 
 
-  // useEffect(createPlayers, [])
-  // useEffect(gamePlay, [])
 
-  // Establishment Cards
-  const B1 = {
-    name: "Wheat Field",
-    activationNum: 1,
-    cost: 1,
-    effect: 1,
-    isEstablishment: true
-  }
+  // const rollDie = () => {
+  //   const rolledNumber = Math.floor(Math.random() * 6) + 1
+  //   console.log(`Die roll: ${rolledNumber}`)
+  //   return rolledNumber
+  // }
+  // const rolledNumber = rollDie();
 
-  const B2 = {
-    name: "Ranch",
-    activationNum: 2,
-    cost: 2,
-    effect: 1,
-    isEstablishment: true
-  }
+  // const declareRolledNum = document.createElement('p')
+  // declareRolledNum.innerHTML = `Rolled number: ${rolledNumber}`
+  // document.querySelector('.gamelog').appendChild(declareRolledNum)
 
-  const B3 = {
-    name: "Cafe",
-    activationNum: 3,
-    cost: 2,
-    effect: 1,
-    isEstablishment: true
-  }
+  // players.forEach((player) => {
+  //   player.establishments.forEach((establishment) => {
+  //     if (establishment.activationNum === rolledNumber) {
+  //       player.coins += establishment.effect
+  //     }
+  //   })
+  // })
 
-  // Landmark Cards
-  const LandmarkTrain = {
-    name: "Train Station",
-    cost: 5,
-    isEstablishment: false
-  }
+  // console.log(players)
 
-  const LandmarkShop = {
-    name: "Shopping Mall",
-    cost: 7,
-    isEstablishment: false
-  }
-
-  const cardsForPurchase = [LandmarkTrain, LandmarkShop, B1, B2, B3]
-
-  const gamePlay = () => {
-    const greeting = document.createElement('p')
-    greeting.innerHTML = `Welcome to Machi Koro!`
-    document.querySelector('.gamelog').appendChild(greeting)
-    console.log('hi')
-  }
+  // endTurn()
 
 
+
+  // const greeting2 = document.createElement('p')
+  // greeting2.innerHTML = `${currentPlayer.name} is the current Player`
+  // document.querySelector('.gamelog').appendChild(greeting2)
+
+  // const endTurn = () => {
+  //   if (currentPlayer.hasLandmarkTrain && currentPlayer.hasLandmarkShop) {
+  //     const declareWinner = document.createElement('h2')
+  //     declareWinner.innerHTML = `${currentPlayer} has won!`
+  //     document.querySelector('.gamelog').appendChild(declareWinner)
+  //   } else {
+  //     setCurrentPlayerIndex((currentPlayerIndex + 1) % players.length);
+  //   }
+  // }
 
   return (
     <div className="Game">
       <section className="game-board">
         <section className="player-boxes">
-          <div></div>
-        </section>
+          {players.map(player => (
+            <div key={player.name}>
+              <section className="player-box">
 
+                <div className="left-side">
+                  <div className="name-coins">
+                    <h1>{`${player.name}`}</h1>
+                    <p>{player.coins} coins</p>
+                  </div>
+
+                  <div className="establishments">
+                    {player.establishments.map((card, index) => (
+                      <div key={index}>
+                        <div className="card">{card}hello</div>
+
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="right-side">
+
+                </div>
+              </section>
+
+            </div>
+          ))}
+        </section>
 
         <section className="communal-side">
           <img className="machi-logo" src={images.machiLogo} alt="machi koro logo" />
@@ -98,7 +123,7 @@ function Game({ }) {
           </div>
 
           <div className="shop-section board-section">
-            {cardsForPurchase.map(card => (
+            {cards.map(card => (
               <div key={card.name}>
                 <div className="card-slot">
                   <div
@@ -124,27 +149,12 @@ function Game({ }) {
       </section>
     </div>
   )
-
-
 }
-
 
 
 export default Game
 
 // Next Steps:
-// Create playername array in PlayerCount.js file in order to loop through 
-// Bring it over to Game.js file
-// Create function createPlayers() that loops through the playerName array and assign the state to each individual player. Assign the player name to the name key at this step too.
-
-// All establishment cards will be objects
-// Hard code the cards first (just 2 cards for now)
-// Needs key value of isEsablishment: true/false
-
-// Create shop array. Array will only have 2 indexes.
-// As users purchase cards from the shop, the shop will pop the purchased card from its array, and push a new card randomly from a library
-// *For MVP, the cardsForPurchase will be a hard coded array.
-
 
 // Order of procedure
 // 1. Check player turn. Assign currentPlayer 

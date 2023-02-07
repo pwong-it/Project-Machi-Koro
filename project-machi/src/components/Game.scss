@@ -26,9 +26,45 @@
   .player-boxes {
     width: 100%;
     background-color: rgba($color: white, $alpha: 0.15);
-
   }
 }
+
+// Left side of Gameboard
+.player-box {
+  display: grid;
+  grid-template-columns: 8fr 2fr;
+  border-radius: 20px;
+  border: 2px solid white;
+  background-color: rgba($color: white, $alpha: 0.9);
+  padding: 2%;
+  margin: 2% 0;
+
+  .name-coins {
+    display: flex;
+    justify-content: space-between;
+
+    h1,
+    p {
+      margin: 0;
+    }
+
+  }
+
+  .establishments {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+
+    .card {
+      width: 100%;
+      height: 100%;
+      border: 1px solid black;
+    }
+  }
+}
+
+
 
 // Right side of Gameboard
 .communal-side {

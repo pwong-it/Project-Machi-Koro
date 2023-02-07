@@ -161,6 +161,13 @@ Wrote down the next steps and the game mechanics overall process. Detailed funct
 Hard coded the establishment and landmark cards.
 ![Progress Photo 19](/README_images/Progress_19.png)
 
+For some reason, after creating the gameplay function to start off the game, I was seeing a lot of console logs even wrapping it in the useEffect. However, I read online that this usually occurs in the dev environment. So I deployed again, and sure enough, the log only happened once! 
+![Progress Photo 22](/README_images/Progress_22.png)<br/> 
+![Progress Photo 21](/README_images/Progress_21.png)<br/> 
+![Progress Photo 20](/README_images/Progress_20.png)<br/> 
+
+
+
 
 ## Post-Development
 
