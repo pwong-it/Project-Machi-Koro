@@ -20,8 +20,6 @@ function PlayerModal({ setPlayerModal, playerCount }) {
     setPlayerNames(updatedNames)
   }
 
-  console.log(playerNames)
-
   return (
     <div className='backdrop' onClick={handleBackdropClick}>
       <div className="modal-box">

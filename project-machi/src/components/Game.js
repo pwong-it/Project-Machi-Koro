@@ -4,7 +4,7 @@ import { images } from '../machi_images'
 import { useLocation } from "react-router-dom"
 import { cards } from "./Cards"
 
-function Game({ }) {
+function Game() {
   const location = useLocation()
   const playerNames = location.state.playerNames
 
@@ -13,42 +13,57 @@ function Game({ }) {
   const currentPlayer = players[currentPlayerIndex]
 
 
+  // const createPlayers = () => {
+  //   const newPlayers = playerNames.map(name => ({
+  //     name: name,
+  //     coins: 3,
+  //     establishments: [cards.B1, cards.B2, cards.B3],
+  //     hasLandmarkTrain: false,
+  //     hasLandmarkShop: false,
+  //   }))
+  //   setPlayers(newPlayers)
+  //   return newPlayers[currentPlayerIndex]
+  // }
+
   const createPlayers = () => {
     const newPlayers = playerNames.map(name => ({
       name: name,
-      coins: 3,
-      establishments: [cards.B1, cards.B2, cards.B3],
+      coins: 4,
+      establishments: [cards[0], cards[1], cards[2]],
       hasLandmarkTrain: false,
       hasLandmarkShop: false,
     }))
     setPlayers(newPlayers)
+    return newPlayers[currentPlayerIndex]
+  }
+
+
+  const greeting = () => {
+    const player = createPlayers()
+    const greeting = document.createElement('p');
+    greeting.innerHTML = `Welcome to Machi Koro! The current player is ${player.name}`;
+    document.querySelector('.gamelog').appendChild(greeting);
+  };
+
+  const rollDie = () => {
+    if (currentPlayer) {
+      const rolledNumber = Math.floor(Math.random() * 6) + 1
+      const logRolledNum = document.createElement('p');
+      logRolledNum.innerHTML = `${currentPlayer.name} rolled ${rolledNumber}`;
+      document.querySelector('.gamelog').appendChild(logRolledNum);
+    }
   }
 
 
 
-  const greeting = () => {
-    if (currentPlayer) {
-      const greeting = document.createElement('p');
-      greeting.innerHTML = `Welcome to Machi Koro! The current player is ${currentPlayer.name}`;
-      document.querySelector('.gamelog').appendChild(greeting);
-    }
-  };
-
-
   useEffect(() => {
-    createPlayers()
     greeting()
   }, [])
 
+  useEffect(rollDie, [currentPlayer])
 
 
 
-  // const rollDie = () => {
-  //   const rolledNumber = Math.floor(Math.random() * 6) + 1
-  //   console.log(`Die roll: ${rolledNumber}`)
-  //   return rolledNumber
-  // }
-  // const rolledNumber = rollDie();
 
   // const declareRolledNum = document.createElement('p')
   // declareRolledNum.innerHTML = `Rolled number: ${rolledNumber}`
@@ -99,7 +114,7 @@ function Game({ }) {
                   <div className="establishments">
                     {player.establishments.map((card, index) => (
                       <div key={index}>
-                        <div className="card">{card}hello</div>
+                        <div className="card">{card.name}</div>
 
                       </div>
                     ))}

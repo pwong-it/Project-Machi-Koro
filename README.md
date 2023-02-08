@@ -166,7 +166,15 @@ For some reason, after creating the gameplay function to start off the game, I w
 ![Progress Photo 21](/README_images/Progress_21.png)<br/> 
 ![Progress Photo 20](/README_images/Progress_20.png)<br/> 
 
+Struggled a long time with this bug. Was not able to get the right output from mapping through the establishment key where the value is the array of cards that the player has. At the start of the game, they would have 3 cards. It was able to recognise that the array itself has 3 elements, but it was coming out as undefined, and therefore I was not able to get the card name. 
+![Progress Photo 23](/README_images/Progress_23.png)<br/> 
+![Progress Photo 24](/README_images/Progress_24.png)<br/> 
+![Progress Photo 25](/README_images/Progress_25.png)<br/> 
 
+The problem was it was not recognising the reference of the cards import. Once I was accessing each of the establishment cards correctly, it was able to give the correct output.
+![Progress Photo 26](/README_images/Progress_26.png)<br/> 
+![Progress Photo 27](/README_images/Progress_27.png)<br/> 
+![Progress Photo 28](/README_images/Progress_28.png)<br/> 
 
 
 ## Post-Development
