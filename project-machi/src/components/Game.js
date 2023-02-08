@@ -63,7 +63,6 @@ function Game() {
           logActivation(card)
           logOptions(player)
           activationLogged = true
-
         }
       }
     })
@@ -105,7 +104,6 @@ function Game() {
 
 
   const buyCard = () => {
-    console.log(selectedCard.name, selectedCard.cost)
     if (currentPlayer && selectedCard) {
       if (currentPlayer.coins >= selectedCard.cost) {
         currentPlayer.establishments.push(selectedCard)
@@ -128,9 +126,27 @@ function Game() {
       declareWinner.innerHTML = `${currentPlayer.name} has won!`
       document.querySelector('.gamelog').appendChild(declareWinner)
     } else {
-      setCurrentPlayerIndex((currentPlayerIndex + 1) % players.length);
+      setCurrentPlayerIndex((currentPlayerIndex + 1) % players.length)
+      const nextPlayer = players[(currentPlayerIndex + 1) % players.length]
+      const logNextPlayer = document.createElement('p')
+      logNextPlayer.innerHTML = `${nextPlayer.name} is the next player`
+      document.querySelector('.gamelog').appendChild(logNextPlayer)
     }
   }
+
+  const passTurn = () => {
+    const logPass = document.createElement('p')
+    logPass.innerHTML = `${currentPlayer.name} has chosen to pass their turn`
+    document.querySelector('.gamelog').appendChild(logPass)
+    setCurrentPlayerIndex((currentPlayerIndex + 1) % players.length)
+
+    // Logging the next player
+    const nextPlayer = players[(currentPlayerIndex + 1) % players.length]
+    const logNextPlayer = document.createElement('p')
+    logNextPlayer.innerHTML = `${nextPlayer.name} is the next player`
+    document.querySelector('.gamelog').appendChild(logNextPlayer)
+  }
+
 
   useEffect(() => {
     greeting()
@@ -201,9 +217,12 @@ function Game() {
           <div className="action-section board-section">
             <button
               className="buy-btn action-btn"
-              onClick={() => buyCard()}
-            >BUY</button>
-            <button className="pass-btn action-btn">PASS</button>
+              onClick={() => buyCard()}>BUY
+            </button>
+            <button
+              className="pass-btn action-btn"
+              onClick={() => passTurn()}>PASS
+            </button>
           </div>
 
           <div className="gamelog-section board-section">
