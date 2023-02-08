@@ -179,6 +179,8 @@ The problem was it was not recognising the reference of the cards import. Once I
 Added logging for the welcome message(what each player starts with, and who the first player is). Also logged what the first player rolled (automatic for now), and which card gets activated. Whichever card is activated will increase the coin balance of each player. They will receive multiple coins for each card they own that was activated. 
 ![Progress Photo 29](/README_images/Progress_29.png)<br/> 
 
+Able to log what the user has clicked on in the shop. 
+![Progress Photo 30](/README_images/Progress_30.png)<br/> 
 
 
 ## Post-Development
@@ -212,6 +214,7 @@ Added logging for the welcome message(what each player starts with, and who the 
 
 ## :sunglasses: Lessons learnt
 1.  When trying to debug, copy code that is already working into the area where it does not work (if it's a similar task), then if the bug is still there, it means the issue is coming from somewhere else. This can narrow down the scope of the debugging task.
+2.  console.log, console.log, console.log!
 
 
 

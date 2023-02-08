@@ -5,13 +5,20 @@ import { useLocation } from "react-router-dom"
 import { cards } from "./Cards"
 
 function Game() {
+  // Receiving the playerNames array from the playerNames modal
   const location = useLocation()
   const playerNames = location.state.playerNames
 
+  // useStates
   const [players, setPlayers] = useState([])
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0)
-  const currentPlayer = players[currentPlayerIndex]
+  const [selectedCard, setSelectedCard] = useState(null)
 
+  // declaring variables
+  const currentPlayer = players[currentPlayerIndex]
+  const gameLog = document.querySelector('.gamelog')
+
+  // Creating each player's objects using the playerNames array
   const createPlayers = () => {
     const newPlayers = playerNames.map(name => ({
       name: name,
@@ -24,42 +31,13 @@ function Game() {
     return newPlayers[currentPlayerIndex]
   }
 
-
+  // Welcoming message
   const greeting = () => {
     const player = createPlayers()
     const greeting = document.createElement('p')
     greeting.innerHTML = `Welcome to Machi Koro! All players start with 4 coins. The current player is ${player.name}`
     document.querySelector('.gamelog').appendChild(greeting);
   };
-
-  let activationLogged = false
-
-  const checkActivation = (player, rolledNumber) => {
-    player.establishments.forEach((card) => {
-      if (card.activationNum === rolledNumber) {
-        player.coins += card.effect
-        updateCoinBalance(player)
-        if (!activationLogged) {
-          logActivation(card)
-          activationLogged = true
-        }
-      }
-    })
-  }
-
-  const logActivation = (card) => {
-    const cardActivated = document.createElement('p')
-    cardActivated.innerHTML = `${card.name} was activated. All players receive ${card.effect} coins for each ${card.name} card they own`
-    document.querySelector('.gamelog').appendChild(cardActivated);
-  }
-
-  // Updating the coin balance on the page
-  const updateCoinBalance = (player) => {
-    const playerCoinBalance = document.querySelector(`.${player.name}-coin`)
-    playerCoinBalance.innerHTML = `${player.coins} coins`
-  }
-
-
 
   const rollDie = () => {
     if (currentPlayer) {
@@ -75,7 +53,78 @@ function Game() {
     }
   }
 
+  let activationLogged = false
+  const checkActivation = (player, rolledNumber) => {
+    player.establishments.forEach((card) => {
+      if (card.activationNum === rolledNumber) {
+        player.coins += card.effect
+        updateCoinBalance(player)
+        if (!activationLogged) {
+          logActivation(card)
+          logOptions(player)
+          activationLogged = true
+        }
+      }
+    })
+    if (!activationLogged) {
+      logOptions(player)
+      activationLogged = true
+    }
+  }
 
+  // Updating the coin balance on the page
+  const updateCoinBalance = (player) => {
+    const playerCoinBalance = document.querySelector(`.${player.name}-coin`)
+    playerCoinBalance.innerHTML = `${player.coins} coins`
+  }
+
+  // Checking Phase
+  const logActivation = (card) => {
+    gameLog.scrollTop = gameLog.scrollHeight
+    const cardActivated = document.createElement('p')
+    cardActivated.innerHTML = `${card.name} was activated. All players receive ${card.effect} coins for each ${card.name} card they own`
+    document.querySelector('.gamelog').appendChild(cardActivated)
+  }
+
+  const logOptions = (player) => {
+    gameLog.scrollTop = gameLog.scrollHeight
+    const listOptions = document.createElement('p')
+    listOptions.innerHTML = `${player.name} can now choose to either buy a card from the shop, or pass their turn.`
+    document.querySelector('.gamelog').appendChild(listOptions)
+  }
+
+  // Purchase Phase
+  const selectToBuy = (event) => {
+    gameLog.scrollTop = gameLog.scrollHeight
+    const selectedCard = event
+    const logSelection = document.createElement('p')
+    logSelection.innerHTML = `${currentPlayer.name} has selected ${selectedCard.name}. Press BUY to purchase card, or press PASS to end your turn.`
+    document.querySelector('.gamelog').appendChild(logSelection)
+    return selectedCard
+  }
+
+
+  const buyCard = (selectedCard) => {
+    console.log(selectedCard)
+    if (currentPlayer) {
+      if (currentPlayer.coins >= selectedCard.cost) {
+        currentPlayer.establishments.push(selectedCard)
+        currentPlayer.coins -= selectedCard.cost
+        setPlayers([...players])
+      }
+    }
+
+  }
+
+  const endTurn = () => {
+    if (currentPlayer.hasLandmarkTrain && currentPlayer.hasLandmarkShop) {
+      const declareWinner = document.createElement('h2')
+      declareWinner.innerHTML = `${currentPlayer} has won!`
+      document.querySelector('.gamelog').appendChild(declareWinner)
+    } else {
+      setCurrentPlayerIndex((currentPlayerIndex + 1) % players.length);
+    }
+  }
 
   useEffect(() => {
     greeting()
@@ -84,15 +133,7 @@ function Game() {
   useEffect(rollDie, [currentPlayer, players])
 
 
-  // const endTurn = () => {
-  //   if (currentPlayer.hasLandmarkTrain && currentPlayer.hasLandmarkShop) {
-  //     const declareWinner = document.createElement('h2')
-  //     declareWinner.innerHTML = `${currentPlayer} has won!`
-  //     document.querySelector('.gamelog').appendChild(declareWinner)
-  //   } else {
-  //     setCurrentPlayerIndex((currentPlayerIndex + 1) % players.length);
-  //   }
-  // }
+
 
   return (
     <div className="Game">
@@ -139,7 +180,8 @@ function Game() {
               <div key={card.name}>
                 <div className="card-slot">
                   <div
-                    className={`${card} shop-card`}>
+                    className={`${card.name} shop-card`}
+                    onClick={() => selectToBuy(card)}>
                   </div>
                   <p>{`${card.name}`}</p>
                   <p>{`Cost:${card.cost}`}</p>
@@ -151,7 +193,10 @@ function Game() {
           </div>
 
           <div className="action-section board-section">
-            <button className="buy-btn action-btn">BUY</button>
+            <button
+              className="buy-btn action-btn"
+              onClick={() => buyCard()}
+            >BUY</button>
             <button className="pass-btn action-btn">PASS</button>
           </div>
 

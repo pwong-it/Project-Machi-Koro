@@ -11,7 +11,7 @@ const B2 = {
   name: "Ranch",
   activationNum: 2,
   cost: 2,
-  effect: 1,
+  effect: 2,
   isEstablishment: true
 }
 
@@ -19,7 +19,7 @@ const B3 = {
   name: "Cafe",
   activationNum: 3,
   cost: 2,
-  effect: 1,
+  effect: 2,
   isEstablishment: true
 }
 

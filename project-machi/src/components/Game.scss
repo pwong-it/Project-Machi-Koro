@@ -133,5 +133,10 @@
     h1 {
       text-align: center;
     }
+
+    .gamelog {
+      height: 450px;
+      overflow-y: scroll;
+    }
   }
 }
