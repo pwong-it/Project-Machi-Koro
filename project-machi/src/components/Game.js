@@ -22,7 +22,7 @@ function Game() {
   const createPlayers = () => {
     const newPlayers = playerNames.map(name => ({
       name: name,
-      coins: 4,
+      coins: 10,
       establishments: [cards[2], cards[3], cards[4], cards[2]],
       hasLandmarkTrain: false,
       hasLandmarkShop: false,
@@ -63,6 +63,7 @@ function Game() {
           logActivation(card)
           logOptions(player)
           activationLogged = true
+
         }
       }
     })
@@ -86,32 +87,37 @@ function Game() {
     document.querySelector('.gamelog').appendChild(cardActivated)
   }
 
-  const logOptions = (player) => {
+  const logOptions = () => {
     gameLog.scrollTop = gameLog.scrollHeight
     const listOptions = document.createElement('p')
-    listOptions.innerHTML = `${player.name} can now choose to either buy a card from the shop, or pass their turn.`
+    listOptions.innerHTML = `${currentPlayer.name} can now choose to either buy a card from the shop, or pass their turn.`
     document.querySelector('.gamelog').appendChild(listOptions)
   }
 
   // Purchase Phase
   const selectToBuy = (event) => {
     gameLog.scrollTop = gameLog.scrollHeight
-    const selectedCard = event
+    setSelectedCard(event)
     const logSelection = document.createElement('p')
-    logSelection.innerHTML = `${currentPlayer.name} has selected ${selectedCard.name}. Press BUY to purchase card, or press PASS to end your turn.`
+    logSelection.innerHTML = `${currentPlayer.name} has selected ${event.name}. Press BUY to purchase card, or press PASS to end your turn.`
     document.querySelector('.gamelog').appendChild(logSelection)
-    return selectedCard
   }
 
 
-  const buyCard = (selectedCard) => {
-    console.log(selectedCard)
-    if (currentPlayer) {
+  const buyCard = () => {
+    console.log(selectedCard.name, selectedCard.cost)
+    if (currentPlayer && selectedCard) {
       if (currentPlayer.coins >= selectedCard.cost) {
         currentPlayer.establishments.push(selectedCard)
         currentPlayer.coins -= selectedCard.cost
+        if (selectedCard.name === "Train Station") {
+          currentPlayer.hasLandmarkTrain = true
+        } else if (selectedCard.name === "Shopping Mall") {
+          currentPlayer.hasLandmarkShop = true
+        }
         setPlayers([...players])
       }
+      endTurn()
     }
 
   }
@@ -119,7 +125,7 @@ function Game() {
   const endTurn = () => {
     if (currentPlayer.hasLandmarkTrain && currentPlayer.hasLandmarkShop) {
       const declareWinner = document.createElement('h2')
-      declareWinner.innerHTML = `${currentPlayer} has won!`
+      declareWinner.innerHTML = `${currentPlayer.name} has won!`
       document.querySelector('.gamelog').appendChild(declareWinner)
     } else {
       setCurrentPlayerIndex((currentPlayerIndex + 1) % players.length);
@@ -130,7 +136,7 @@ function Game() {
     greeting()
   }, [])
 
-  useEffect(rollDie, [currentPlayer, players])
+  useEffect(rollDie, [currentPlayer])
 
 
 

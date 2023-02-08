@@ -182,6 +182,9 @@ Added logging for the welcome message(what each player starts with, and who the 
 Able to log what the user has clicked on in the shop. 
 ![Progress Photo 30](/README_images/Progress_30.png)<br/> 
 
+Win condition met! Game is able to recognise when the two landmarks have been purchased. Once it does, it logs the winner at the bottom. Many bugs still to fix but finally able to reach the end of the game!!
+![Progress Photo 31](/README_images/Progress_31.png)<br/> 
+
 
 ## Post-Development
 
