@@ -27,12 +27,14 @@ const B3 = {
 const LandmarkTrain = {
   name: "Train Station",
   cost: 5,
+  effect: "Landmark",
   isEstablishment: false
 }
 
 const LandmarkShop = {
   name: "Shopping Mall",
   cost: 7,
+  effect: "Landmark",
   isEstablishment: false
 }
 

@@ -12,24 +12,11 @@ function Game() {
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0)
   const currentPlayer = players[currentPlayerIndex]
 
-
-  // const createPlayers = () => {
-  //   const newPlayers = playerNames.map(name => ({
-  //     name: name,
-  //     coins: 3,
-  //     establishments: [cards.B1, cards.B2, cards.B3],
-  //     hasLandmarkTrain: false,
-  //     hasLandmarkShop: false,
-  //   }))
-  //   setPlayers(newPlayers)
-  //   return newPlayers[currentPlayerIndex]
-  // }
-
   const createPlayers = () => {
     const newPlayers = playerNames.map(name => ({
       name: name,
       coins: 4,
-      establishments: [cards[0], cards[1], cards[2]],
+      establishments: [cards[2], cards[3], cards[4], cards[2]],
       hasLandmarkTrain: false,
       hasLandmarkShop: false,
     }))
@@ -40,17 +27,51 @@ function Game() {
 
   const greeting = () => {
     const player = createPlayers()
-    const greeting = document.createElement('p');
-    greeting.innerHTML = `Welcome to Machi Koro! The current player is ${player.name}`;
+    const greeting = document.createElement('p')
+    greeting.innerHTML = `Welcome to Machi Koro! All players start with 4 coins. The current player is ${player.name}`
     document.querySelector('.gamelog').appendChild(greeting);
   };
+
+  let activationLogged = false
+
+  const checkActivation = (player, rolledNumber) => {
+    player.establishments.forEach((card) => {
+      if (card.activationNum === rolledNumber) {
+        player.coins += card.effect
+        updateCoinBalance(player)
+        if (!activationLogged) {
+          logActivation(card)
+          activationLogged = true
+        }
+      }
+    })
+  }
+
+  const logActivation = (card) => {
+    const cardActivated = document.createElement('p')
+    cardActivated.innerHTML = `${card.name} was activated. All players receive ${card.effect} coins for each ${card.name} card they own`
+    document.querySelector('.gamelog').appendChild(cardActivated);
+  }
+
+  // Updating the coin balance on the page
+  const updateCoinBalance = (player) => {
+    const playerCoinBalance = document.querySelector(`.${player.name}-coin`)
+    playerCoinBalance.innerHTML = `${player.coins} coins`
+  }
+
+
 
   const rollDie = () => {
     if (currentPlayer) {
       const rolledNumber = Math.floor(Math.random() * 6) + 1
       const logRolledNum = document.createElement('p');
-      logRolledNum.innerHTML = `${currentPlayer.name} rolled ${rolledNumber}`;
+      logRolledNum.innerHTML = `${currentPlayer.name} rolled a ${rolledNumber}`;
       document.querySelector('.gamelog').appendChild(logRolledNum);
+
+      // Checking for activation and adding coins balance for each player
+      players.forEach((player) => {
+        checkActivation(player, rolledNumber)
+      })
     }
   }
 
@@ -60,32 +81,8 @@ function Game() {
     greeting()
   }, [])
 
-  useEffect(rollDie, [currentPlayer])
+  useEffect(rollDie, [currentPlayer, players])
 
-
-
-
-  // const declareRolledNum = document.createElement('p')
-  // declareRolledNum.innerHTML = `Rolled number: ${rolledNumber}`
-  // document.querySelector('.gamelog').appendChild(declareRolledNum)
-
-  // players.forEach((player) => {
-  //   player.establishments.forEach((establishment) => {
-  //     if (establishment.activationNum === rolledNumber) {
-  //       player.coins += establishment.effect
-  //     }
-  //   })
-  // })
-
-  // console.log(players)
-
-  // endTurn()
-
-
-
-  // const greeting2 = document.createElement('p')
-  // greeting2.innerHTML = `${currentPlayer.name} is the current Player`
-  // document.querySelector('.gamelog').appendChild(greeting2)
 
   // const endTurn = () => {
   //   if (currentPlayer.hasLandmarkTrain && currentPlayer.hasLandmarkShop) {
@@ -108,7 +105,7 @@ function Game() {
                 <div className="left-side">
                   <div className="name-coins">
                     <h1>{`${player.name}`}</h1>
-                    <p>{player.coins} coins</p>
+                    <p className={`${player.name}-coin`}>{player.coins} coins</p>
                   </div>
 
                   <div className="establishments">
@@ -145,6 +142,8 @@ function Game() {
                     className={`${card} shop-card`}>
                   </div>
                   <p>{`${card.name}`}</p>
+                  <p>{`Cost:${card.cost}`}</p>
+                  <p>{`Effect:${card.effect}`}</p>
                 </div>
 
               </div>
