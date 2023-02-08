@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState } from "react"
 import "./Modal.scss"
 
 function StartModal({ setStartModal, setPlayerModal, setPlayerCount }) {

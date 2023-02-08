@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+}
+
+.shop-section {
+  height: 40%;
+  display: grid;
+  // grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+
+
+  .card-parent {
+    width: 100%;
+    height: 100%;
+  }
+
+  .card-slot {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .shop-card {
+    width: 100%;
+    min-width: 120px;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+}
+
+.shop-card:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+}
+
+// Player Cards section
+.card {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+.Wheat {
+  background-image: url(./images/1_Wheat-Field.gif);
+}
+
+.Ranch {
+  background-image: url(./images/2_Ranch.gif);
+}
+
+.Apple {
+  background-image: url(./images/3_Apple.gif);
+}
+
+.Flower {
+  background-image: url(./images/4_Flower-Orchard.gif);
+}
+
+.Forest {
+  background-image: url(./images/5_Forest.gif);
+}
+
+.Mine {
+  background-image: url(./images/6_Mine.gif);
+}
+
+.Shopping {
+  background-image: url(./images/Built_Shopping-Mall.gif);
+}
+
+.Train {
+  background-image: url(./images/Built_Train-Station.gif);
+}

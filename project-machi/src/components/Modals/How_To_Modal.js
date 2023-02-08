@@ -32,7 +32,7 @@ function HowToModal({ setHowToModal }) {
             Koro, this infectiously fun game may have you
             wondering if the dinner table ever served another
             purpose other than gaming.</p>
-          <p>For more detailed information from the official Machi Koro rulebook, please click <span><a href="https://www.fgbradleys.com/rules/rules2/MachiKoro-rules.pdf" target="_blank">here.</a></span></p>
+          <p>For more detailed information from the official Machi Koro rulebook, please click <span><a href="https://www.fgbradleys.com/rules/rules2/MachiKoro-rules.pdf" target="_blank" rel="noreferrer">here.</a></span></p>
         </div>
       </div>
     </div>

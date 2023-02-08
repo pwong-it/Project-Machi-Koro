@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import './Game.scss'
+import './Cards.scss'
 import { images } from '../machi_images'
 import { useLocation } from "react-router-dom"
 import { cards } from "./Cards"
@@ -13,6 +14,7 @@ function Game() {
   const [players, setPlayers] = useState([])
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0)
   const [selectedCard, setSelectedCard] = useState(null)
+  const [animate, setAnimate] = useState(false)
 
   // declaring variables
   const currentPlayer = players[currentPlayerIndex]
@@ -22,8 +24,8 @@ function Game() {
   const createPlayers = () => {
     const newPlayers = playerNames.map(name => ({
       name: name,
-      coins: 10,
-      establishments: [cards[2], cards[3], cards[4], cards[2]],
+      coins: 5,
+      establishments: [cards[2], cards[3]],
       hasLandmarkTrain: false,
       hasLandmarkShop: false,
     }))
@@ -35,8 +37,11 @@ function Game() {
   const greeting = () => {
     const player = createPlayers()
     const greeting = document.createElement('p')
-    greeting.innerHTML = `Welcome to Machi Koro! All players start with 4 coins. The current player is ${player.name}`
+    const greeting2 = document.createElement('p')
+    greeting.innerHTML = `Welcome to Machi Koro! All players start with ${player.coins} coins. The current player is ${player.name}`
+    greeting2.innerHTML = `Hey ${player.name}, click on the die to roll it!`
     document.querySelector('.gamelog').appendChild(greeting);
+    document.querySelector('.gamelog').appendChild(greeting2);
   };
 
   const rollDie = () => {
@@ -45,6 +50,7 @@ function Game() {
       const logRolledNum = document.createElement('p');
       logRolledNum.innerHTML = `${currentPlayer.name} rolled a ${rolledNumber}`;
       document.querySelector('.gamelog').appendChild(logRolledNum);
+      gameLog.scrollTop = gameLog.scrollHeight
 
       // Checking for activation and adding coins balance for each player
       players.forEach((player) => {
@@ -80,26 +86,26 @@ function Game() {
 
   // Checking Phase
   const logActivation = (card) => {
-    gameLog.scrollTop = gameLog.scrollHeight
     const cardActivated = document.createElement('p')
     cardActivated.innerHTML = `${card.name} was activated. All players receive ${card.effect} coins for each ${card.name} card they own`
     document.querySelector('.gamelog').appendChild(cardActivated)
+    gameLog.scrollTop = gameLog.scrollHeight
   }
 
   const logOptions = () => {
-    gameLog.scrollTop = gameLog.scrollHeight
     const listOptions = document.createElement('p')
     listOptions.innerHTML = `${currentPlayer.name} can now choose to either buy a card from the shop, or pass their turn.`
     document.querySelector('.gamelog').appendChild(listOptions)
+    gameLog.scrollTop = gameLog.scrollHeight
   }
 
   // Purchase Phase
   const selectToBuy = (event) => {
-    gameLog.scrollTop = gameLog.scrollHeight
     setSelectedCard(event)
     const logSelection = document.createElement('p')
     logSelection.innerHTML = `${currentPlayer.name} has selected ${event.name}. Press BUY to purchase card, or press PASS to end your turn.`
     document.querySelector('.gamelog').appendChild(logSelection)
+    gameLog.scrollTop = gameLog.scrollHeight
   }
 
 
@@ -117,7 +123,6 @@ function Game() {
       }
       endTurn()
     }
-
   }
 
   const endTurn = () => {
@@ -125,12 +130,14 @@ function Game() {
       const declareWinner = document.createElement('h2')
       declareWinner.innerHTML = `${currentPlayer.name} has won!`
       document.querySelector('.gamelog').appendChild(declareWinner)
+      gameLog.scrollTop = gameLog.scrollHeight
     } else {
       setCurrentPlayerIndex((currentPlayerIndex + 1) % players.length)
       const nextPlayer = players[(currentPlayerIndex + 1) % players.length]
       const logNextPlayer = document.createElement('p')
-      logNextPlayer.innerHTML = `${nextPlayer.name} is the next player`
+      logNextPlayer.innerHTML = `${nextPlayer.name} is the next player. Roll away ${nextPlayer.name}!`
       document.querySelector('.gamelog').appendChild(logNextPlayer)
+      gameLog.scrollTop = gameLog.scrollHeight
     }
   }
 
@@ -143,8 +150,9 @@ function Game() {
     // Logging the next player
     const nextPlayer = players[(currentPlayerIndex + 1) % players.length]
     const logNextPlayer = document.createElement('p')
-    logNextPlayer.innerHTML = `${nextPlayer.name} is the next player`
+    logNextPlayer.innerHTML = `${nextPlayer.name} is the next player. Blow on the dice for extra luck!`
     document.querySelector('.gamelog').appendChild(logNextPlayer)
+    gameLog.scrollTop = gameLog.scrollHeight
   }
 
 
@@ -152,15 +160,13 @@ function Game() {
     greeting()
   }, [])
 
-  useEffect(rollDie, [currentPlayer])
-
-
 
 
   return (
     <div className="Game">
       <section className="game-board">
         <section className="player-boxes">
+          <h1>PLAYER BOXES</h1>
           {players.map(player => (
             <div key={player.name}>
               <section className="player-box">
@@ -168,20 +174,18 @@ function Game() {
                 <div className="left-side">
                   <div className="name-coins">
                     <h1>{`${player.name}`}</h1>
-                    <p className={`${player.name}-coin`}>{player.coins} coins</p>
+                    <h1 className={`${player.name}-coin`}>{player.coins} <span class="material-symbols-outlined">
+                      monetization_on
+                    </span></h1>
                   </div>
 
                   <div className="establishments">
                     {player.establishments.map((card, index) => (
                       <div key={index}>
-                        <div className="card">{card.name}</div>
-
+                        <div className={`${card.name} card`}></div>
                       </div>
                     ))}
                   </div>
-                </div>
-                <div className="right-side">
-
                 </div>
               </section>
 
@@ -191,30 +195,26 @@ function Game() {
 
         <section className="communal-side">
           <img className="machi-logo" src={images.machiLogo} alt="machi koro logo" />
-
-          <div className="dice-section board-section">
-            <div className="single-die dice">1</div>
-            <div className="double-dice dice">2</div>
-          </div>
+          <h1>CARD SHOP</h1>
 
           <div className="shop-section board-section">
             {cards.map(card => (
-              <div key={card.name}>
+              <div className="card-parent" key={card.name}>
                 <div className="card-slot">
                   <div
                     className={`${card.name} shop-card`}
                     onClick={() => selectToBuy(card)}>
                   </div>
-                  <p>{`${card.name}`}</p>
-                  <p>{`Cost:${card.cost}`}</p>
-                  <p>{`Effect:${card.effect}`}</p>
                 </div>
-
               </div>
             ))}
           </div>
 
           <div className="action-section board-section">
+            <div
+              className="single-die dice"
+              onClick={() => rollDie()}>
+            </div>
             <button
               className="buy-btn action-btn"
               onClick={() => buyCard()}>BUY

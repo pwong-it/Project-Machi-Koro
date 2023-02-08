@@ -185,6 +185,9 @@ Able to log what the user has clicked on in the shop.
 Win condition met! Game is able to recognise when the two landmarks have been purchased. Once it does, it logs the winner at the bottom. Many bugs still to fix but finally able to reach the end of the game!!
 ![Progress Photo 31](/README_images/Progress_31.png)<br/> 
 
+Pass button integrated. Also displays who the next player is.
+![Progress Photo 32](/README_images/Progress_32.png)<br/> 
+
 
 ## Post-Development
 
