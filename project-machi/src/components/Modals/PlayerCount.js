@@ -38,23 +38,29 @@ function PlayerModal({ setPlayerModal, playerCount }) {
         <div className="modal-title">
           <h1>Enter Player Names</h1>
         </div>
-        <div className="modal-body">
-          {[...Array(playerCount)].map((_, index) => (
-            <div key={index}>
-              <input
-                type="text"
-                placeholder={`Enter Player ${[index + 1]} Name`}
-                onChange={event => handlePlayerName(event, index)}
-              />
+
+        <section className='player-parent'>
+          <div >
+            <div className="player-count">
+              {[...Array(playerCount)].map((_, index) => (
+                <div key={index}>
+                  <input
+                    type="text"
+                    placeholder={`Enter Player ${[index + 1]} Name`}
+                    onChange={event => handlePlayerName(event, index)}
+                  />
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
 
           < button
-            className="start-btn"
+            className="start-btn action-btn"
             onClick={goToGame}>
             START GAME
           </button>
-        </div>
+        </section>
+
       </div>
     </div >
   )

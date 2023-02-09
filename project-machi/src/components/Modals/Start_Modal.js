@@ -22,7 +22,7 @@ function StartModal({ setStartModal, setPlayerModal, setPlayerCount }) {
         <div className="modal-title">
           <h1>How Many Players?</h1>
         </div>
-        <div className="modal-body player-btns">
+        <div className="player-btns">
           {possiblePlayers.map(count => (
             <div key={count}>
               <div className="button-circles">

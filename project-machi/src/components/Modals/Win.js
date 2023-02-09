@@ -19,15 +19,16 @@ function WinModal({ setWinModal, currentPlayer }) {
     <div className='backdrop' onClick={handleBackdropClick}>
       <div className="modal-box">
         <div className="modal-close-btn">
-          <button onClick={() => setWinModal(false)}>X</button>
+          <button
+            className='close-btn'
+            onClick={() => setWinModal(false)}>X</button>
         </div>
         <div className="modal-title">
           <h1>The Winner is {currentPlayer.name}</h1>
         </div>
 
-        <div className="modal-body end-message">
-          <p>Thank you so much for playing! I hope everyone had fun playing the mini version of the board game that I love playing with my own friends.</p>
-          <p>For those interested in what I'm doing these days my Github and Linkedin is below. Otherwise, return home for another game! </p>
+        <div className="end-message">
+          <p>Thank you so much for playing! I hope everyone had fun playing the mini version of the board game that I love playing with my own friends. I highly recommend you buying the official physical version of the game and its expansions. Hope to see you again!</p>
           < button
             className="return-home-btn action-btn"
             onClick={returnHome}>
