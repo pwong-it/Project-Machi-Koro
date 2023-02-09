@@ -121,7 +121,7 @@ function Game() {
 
 
   const buyCard = () => {
-    if (currentPlayer && selectedCard) {
+    if (currentPlayer && selectedCard && dieRolled) {
       if (currentPlayer.coins >= selectedCard.cost) {
         currentPlayer.establishments.push(selectedCard)
         currentPlayer.coins -= selectedCard.cost

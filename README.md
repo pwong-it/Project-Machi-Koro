@@ -218,6 +218,11 @@ Creating the shadow for the helicopter!
 Bug where user is able to keep rolling multiple times. This was resolved by created a useState and updating the boolean value at the proper times of the gameplay. 
 ![Progress Photo 43](/README_images/Progress_43.png)<br/> 
 
+This next bug was a similar problem. Users are able to buy without rolling the die. A very simple fix using the useState I set up previously with the dieRolled check.
+![Progress Photo 44](/README_images/Progress_44.png)<br/> 
+![Progress Photo 45](/README_images/Progress_45.png)<br/> 
+
+
 
 
 ## Post-Development 
