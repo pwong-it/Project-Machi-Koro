@@ -222,6 +222,9 @@ This next bug was a similar problem. Users are able to buy without rolling the d
 ![Progress Photo 44](/README_images/Progress_44.png)<br/> 
 ![Progress Photo 45](/README_images/Progress_45.png)<br/> 
 
+Another bug is quite a fundamental one to how Machi works. Landmarks are the cards users need to buy to win. However, they are able to buy multiples of the same landmark. This shouldn't happen, and here's how I solved it:
+![Progress Photo 46](/README_images/Progress_46.png)<br/> 
+![Progress Photo 47](/README_images/Progress_47.png)<br/> 
 
 
 

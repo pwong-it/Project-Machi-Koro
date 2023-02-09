@@ -78,7 +78,6 @@ function Game() {
           logActivation(card)
           logOptions(player)
           activationLogged = true
-
         }
       }
     })
@@ -122,6 +121,7 @@ function Game() {
 
   const buyCard = () => {
     if (currentPlayer && selectedCard && dieRolled) {
+      checkLandmark()
       if (currentPlayer.coins >= selectedCard.cost) {
         currentPlayer.establishments.push(selectedCard)
         currentPlayer.coins -= selectedCard.cost
@@ -133,13 +133,30 @@ function Game() {
         setPlayers([...players])
       }
       updateCoinBalance(currentPlayer)
-      const logBought = document.createElement('p')
-      logBought.innerHTML = `${currentPlayer.name} has bought ${selectedCard.name}. That's the end of your turn.`
-      document.querySelector('.gamelog').appendChild(logBought)
+      const logBuy = document.createElement('p')
+      logBuy.innerHTML = `${currentPlayer.name} has bought ${selectedCard.name}. That's the end of your turn.`
+      document.querySelector('.gamelog').appendChild(logBuy)
       gameLog.scrollTop = gameLog.scrollHeight
       endTurn()
       setDieRolled(false)
     }
+  }
+
+  const checkLandmark = () => {
+    if (selectedCard.name === "Train Station" && currentPlayer.hasLandmarkTrain) {
+      logBought()
+      selectToBuy()
+    } else if (selectedCard.name === "Shopping Mall" && currentPlayer.hasLandmarkShop) {
+      logBought()
+      selectToBuy()
+    }
+  }
+
+  const logBought = () => {
+    const logBought = document.createElement('p')
+    logBought.innerHTML = `Hey ${currentPlayer.name}! You have already bought ${selectedCard.name}. You only need one of each type of Landmark. *Hint: Aim for a Landmark you haven't bought yet!`
+    document.querySelector('.gamelog').appendChild(logBought)
+    gameLog.scrollTop = gameLog.scrollHeight
   }
 
   // Option Phase
