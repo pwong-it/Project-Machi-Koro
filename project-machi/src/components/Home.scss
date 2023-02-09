@@ -59,15 +59,55 @@
   }
 
   .home-btn {
-    background-size: cover;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0);
+    background-position: center;
     cursor: pointer;
     padding: 60px;
-    background-color: rgba(0, 0, 0, 0);
     margin-top: 20px;
     border: none;
+    background-image: url(./images/dice.png);
   }
-}
 
+  .home-btn:hover {
+    background-size: 100%;
+
+    animation: bounce 0.4s linear;
+    transition: 0.2s;
+  }
+
+  @keyframes bounce {
+    70% {
+      transform: translateY(0%);
+    }
+
+    80% {
+      transform: translateY(-15%);
+    }
+
+    90% {
+      transform: translateY(0%);
+    }
+
+    95% {
+      transform: translateY(-7%);
+    }
+
+    97% {
+      transform: translateY(0%);
+    }
+
+    99% {
+      transform: translateY(-3%);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+}
 
 // Animations
 .helicopter {
@@ -81,7 +121,7 @@
 .shadow {
   position: absolute;
   right: 0;
-  top: 80%;
+  top: 85%;
   transform: translateY(-50%);
   animation: fly 10s linear infinite;
 }

@@ -31,7 +31,9 @@ function PlayerModal({ setPlayerModal, playerCount }) {
     <div className='backdrop' onClick={handleBackdropClick}>
       <div className="modal-box">
         <div className="modal-close-btn">
-          <button onClick={() => setPlayerModal(false)}>X</button>
+          <button
+            className='close-btn'
+            onClick={() => setPlayerModal(false)}>X</button>
         </div>
         <div className="modal-title">
           <h1>Enter Player Names</h1>

@@ -12,7 +12,9 @@ function HowToModal({ setHowToModal }) {
     <div className='backdrop' onClick={handleBackdropClick}>
       <div className="modal-box">
         <div className="modal-close-btn">
-          <button onClick={() => setHowToModal(false)}>X</button>
+          <button
+            className='close-btn'
+            onClick={() => setHowToModal(false)}>X</button>
         </div>
         <div className="modal-title">
           <h1>How To Play</h1>

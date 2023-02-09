@@ -27,9 +27,34 @@
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
   }
 
+
+
   .modal-title {
     text-align: center;
   }
+}
+
+.close-btn {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid black;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.close-btn:hover {
+  background-color: rgb(197, 30, 0);
+  border-color: white;
+  color: white;
+  transition: 0.2s;
 }
 
 // Start Modal
