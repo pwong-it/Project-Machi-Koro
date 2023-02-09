@@ -1,10 +1,9 @@
 import machiLogo from './components/images/machi-white.png'
-import wheatfield from './components/images/1_Wheat-Field.gif'
-import ranch from './components/images/2_Ranch.gif'
-import forest from './components/images/5_Forest.gif'
+import helicopter from './components/images/helicopter.png'
+import car from './components/images/red-car.png'
+import shadow from './components/images/helicopter-shadow.png'
 
 
 
-
-const images = { machiLogo, wheatfield, ranch, forest }
+const images = { machiLogo, helicopter, car, shadow }
 export { images }

@@ -3,11 +3,11 @@
   /* border: 1px solid red; */
 }
 
-.machi-logo {
+.machi-logo-container {
   display: flex;
   justify-content: center;
 
-  img {
+  .machi-logo {
     margin-top: 6rem;
     width: 60%;
   }
@@ -15,8 +15,25 @@
 
 .home-btns {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-around;
   margin-top: 100px;
+
+  .msg-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 50%;
+    padding: 0 30px;
+    border-radius: 20px;
+    border: 3px solid white;
+    margin-bottom: 30px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  }
+
+  .welcome-msg {
+    color: white;
+    text-align: center;
+  }
 
   .button-box {
     display: flex;
@@ -26,6 +43,7 @@
     border-radius: 20px;
     border: 3px solid white;
     background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   }
 
   div:hover {
@@ -47,5 +65,52 @@
     background-color: rgba(0, 0, 0, 0);
     margin-top: 20px;
     border: none;
+  }
+}
+
+
+// Animations
+.helicopter {
+  position: absolute;
+  right: 0;
+  top: 60%;
+  transform: translateY(-50%);
+  animation: fly 10s linear infinite;
+}
+
+.shadow {
+  position: absolute;
+  right: 0;
+  top: 80%;
+  transform: translateY(-50%);
+  animation: fly 10s linear infinite;
+}
+
+@keyframes fly {
+  from {
+    right: 0;
+  }
+
+  to {
+    right: 100%;
+  }
+}
+
+.car {
+  width: 50px;
+  position: absolute;
+  left: 0;
+  top: 95%;
+  transform: translateY(-50%);
+  animation: drive 20s linear infinite;
+}
+
+@keyframes drive {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: 100%;
   }
 }

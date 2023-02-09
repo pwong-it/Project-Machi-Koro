@@ -129,6 +129,10 @@ function Game() {
         setPlayers([...players])
       }
       updateCoinBalance(currentPlayer)
+      const logBought = document.createElement('p')
+      logBought.innerHTML = `${currentPlayer.name} has bought ${selectedCard.name}. That's the end of your turn.`
+      document.querySelector('.gamelog').appendChild(logBought)
+      gameLog.scrollTop = gameLog.scrollHeight
       endTurn()
     }
   }
@@ -165,15 +169,18 @@ function Game() {
   }
 
   const lineBreak = () => {
+    const container = document.createElement('div')
+    container.style.textAlign = "center"
+
     const lineBreak = document.createElement('span')
     lineBreak.className = "material-symbols-outlined"
     lineBreak.style.color = "grey"
+    lineBreak.style.fontSize = "1.2rem"
     lineBreak.innerHTML = `casino`.repeat(12)
-    document.querySelector('.gamelog').appendChild(lineBreak)
+
+    container.appendChild(lineBreak)
+    document.querySelector('.gamelog').appendChild(container)
   }
-
-
-
 
 
   return (

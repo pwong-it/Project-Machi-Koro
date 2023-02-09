@@ -201,8 +201,19 @@ Updated Trello list.
 ![Progress Photo 36](/README_images/Progress_36.png)<br/> 
 
 I was getting a big problem where users who don't put in any names at the start will go to a completely white game page. In the console, the error was that it could not find the player.name. This is because I have set it up where once on the game page, it will welcome the players and state who the first player is. Since no name was input, it completely bugged out. 
-I then worked on how to resolve this before the goToGame function takes the user to the game route. This alert is the result. 
+I then worked on how to resolve this before the goToGame function takes the user to the game route. This alert is the result.<br/>  
 ![Progress Photo 37](/README_images/Progress_37.png)<br/> 
+
+Found a way to make the dice line break to be centered. The problem I had was the battlog is the parent and if I had text aligned this, the p tags would also have aligned to center, which isn't what I wanted. Solution was to wrap the span tag with a new div and text-align that div. Now I have a very nice line break that separates each players turn
+![Progress Photo 38](/README_images/Progress_38.png)<br/> 
+
+I wanted to take a break from debugging so I played with animations! It was so much fun coming up with the idea of moving the helicopter across the page. Then the idea of incorporating that with an onClick just popped up and I thought how cool would it be if the HOW TO PLAY modal pops up from click on the helicopter! AND IT WORKED! I also decided to add another animation element (red car). In my mind, I'd like to make it an easter egg, where users who discover they can click on helicopter, might click on the car as well. Once they do, they'll find a modal displaying the creator (me) and my details like links to github and linkedin. That's the next step. Also I added a prompt so people will click on the helicopter.<br/> 
+![Progress Photo 39](/README_images/Progress_39.png)<br/> 
+![Progress Photo 40](/README_images/Progress_40.png)<br/> 
+![Progress Photo 41](/README_images/Progress_41.png)<br/> 
+
+Creating the shadow for the helicopter!
+![Progress Photo 41](/README_images/Progress_41.png)<br/> 
 
 
 ## Post-Development 

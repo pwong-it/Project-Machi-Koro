@@ -32,10 +32,19 @@ function Home() {
         </section>
       </section>
 
-      <header className="machi-logo">
-        <img src={images.machiLogo} alt="machi koro logo" />
+      <header className="machi-logo-container">
+        <img className="machi-logo" src={images.machiLogo} alt="machi koro logo" />
       </header>
       <section className="home-btns">
+        <div className="msg-box">
+          <h1 className="welcome-msg">
+            Welcome to Machi Koro!
+          </h1>
+          <h4 className="welcome-msg">
+            If this is your first time, and you are not sure how the game works, I think that chopper pilot is a veteran. Maybe ask him....Otherwise, click START to begin!
+          </h4>
+        </div>
+
         <div className="button-box">
           <button
             className="home-btn start-btn"
@@ -43,14 +52,22 @@ function Home() {
           </button>
           <h1>START</h1>
         </div>
-        <div className="button-box">
-          <button
-            className="home-btn how-to-btn"
-            onClick={() => { setHowToModal(true) }}>
-          </button>
-          <h1>HOW TO PLAY</h1>
-        </div>
       </section>
+
+      <div className="flight-path">
+        <img
+          src={images.helicopter}
+          alt="helicopter flying right to left" className="helicopter"
+          onClick={() => { setHowToModal(true) }} />
+      </div>
+      <div className="shadow-path">
+        <img
+          src={images.shadow}
+          alt="helicopter shadow" className="shadow" />
+      </div>
+      <div className="car-path">
+        <img src={images.car} alt="car driving left to right" className="car" />
+      </div>
 
     </div>
   )
