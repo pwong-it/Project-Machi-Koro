@@ -178,20 +178,23 @@ function Game() {
   }
 
   const passTurn = () => {
-    const logPass = document.createElement('p')
-    logPass.innerHTML = `${currentPlayer.name} has chosen to pass their turn`
-    document.querySelector('.gamelog').appendChild(logPass)
-    setCurrentPlayerIndex((currentPlayerIndex + 1) % players.length)
-    lineBreak()
+    if (dieRolled) {
+      const logPass = document.createElement('p')
+      logPass.innerHTML = `${currentPlayer.name} has chosen to pass their turn`
+      document.querySelector('.gamelog').appendChild(logPass)
+      setCurrentPlayerIndex((currentPlayerIndex + 1) % players.length)
+      lineBreak()
 
 
-    // Logging the next player
-    const nextPlayer = players[(currentPlayerIndex + 1) % players.length]
-    const logNextPlayer = document.createElement('p')
-    logNextPlayer.innerHTML = `${nextPlayer.name} is the next player. Let's Rock & ROLL!`
-    document.querySelector('.gamelog').appendChild(logNextPlayer)
-    gameLog.scrollTop = gameLog.scrollHeight
-    setDieRolled(false)
+      // Logging the next player
+      const nextPlayer = players[(currentPlayerIndex + 1) % players.length]
+      const logNextPlayer = document.createElement('p')
+      logNextPlayer.innerHTML = `${nextPlayer.name} is the next player. Let's Rock & ROLL!`
+      document.querySelector('.gamelog').appendChild(logNextPlayer)
+      gameLog.scrollTop = gameLog.scrollHeight
+      setDieRolled(false)
+    }
+
   }
 
   const lineBreak = () => {
