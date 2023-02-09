@@ -226,6 +226,8 @@ Another bug is quite a fundamental one to how Machi works. Landmarks are the car
 ![Progress Photo 46](/README_images/Progress_46.png)<br/> 
 ![Progress Photo 47](/README_images/Progress_47.png)<br/> 
 
+Updated the How To Play modal with more basic guidance to play the game. Added list of cards too. 
+![Progress Photo 48](/README_images/Progress_48.png)<br/> 
 
 
 ## Post-Development 

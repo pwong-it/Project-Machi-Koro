@@ -39,8 +39,6 @@
 
 // Left side of Gameboard
 .player-box {
-  // display: grid;
-  // grid-template-columns: 1fr;
   border-radius: 10px;
   border: 2px solid white;
   background-color: rgba($color: white, $alpha: 0.9);
@@ -53,16 +51,17 @@
     justify-content: space-between;
     vertical-align: middle;
 
-    h1,
-    p {
+    h1 {
       color: black;
-      font-size: 1.1rem;
-      margin: 0 0;
+      font-size: 1.3rem;
+      margin: 0 0 3px;
     }
 
     span {
       display: inline-flex;
       vertical-align: text-bottom;
+      color: rgb(235, 183, 13);
+      font-weight: 800;
     }
 
   }

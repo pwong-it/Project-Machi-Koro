@@ -19,19 +19,50 @@
   .modal-box {
     background-color: white;
     border-radius: 30px;
-    max-width: 70%;
+    max-width: 900px;
     min-width: 50%;
+    max-height: 600px;
     display: flex;
     flex-direction: column;
     padding: 25px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
   }
 
-
-
   .modal-title {
     text-align: center;
   }
+
+  .modal-body {
+    text-align: center;
+    overflow-y: scroll;
+
+    .card-how {
+      width: 150px;
+      height: 250px;
+      border-radius: 8px;
+      margin: 5px;
+    }
+
+    .card-how:hover {
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+      width: 180px;
+      height: 280px;
+      transition: 1s;
+    }
+
+    .diff-card,
+    .est-card {
+      max-width: 650px;
+      border-radius: 20px;
+    }
+
+    .diff-card:hover,
+    .est-card:hover {
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+      transition: 0.3s;
+    }
+  }
+
 }
 
 .close-btn {
@@ -94,8 +125,6 @@
       background-color: green;
     }
   }
-
-
 
   h3 {
     margin: 0;
