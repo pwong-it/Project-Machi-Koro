@@ -229,6 +229,11 @@ Another bug is quite a fundamental one to how Machi works. Landmarks are the car
 Updated the How To Play modal with more basic guidance to play the game. Added list of cards too. 
 ![Progress Photo 48](/README_images/Progress_48.png)<br/> 
 
+Added another button on the game page that pops up the how-to-play modal. This way players can check on it during the game.
+![Progress Photo 49](/README_images/Progress_49.png)<br/> 
+![Progress Photo 50](/README_images/Progress_50.png)<br/> 
+
+
 
 ## Post-Development 
 

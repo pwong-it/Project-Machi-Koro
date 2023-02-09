@@ -5,6 +5,8 @@ import { images } from '../machi_images'
 import { useLocation } from "react-router-dom"
 import { cards } from "./Cards"
 import WinModal from './Modals/Win'
+import HowToModal from "./Modals/How_To_Modal"
+
 
 function Game() {
   // Receiving the playerNames array from the playerNames modal
@@ -16,6 +18,7 @@ function Game() {
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0)
   const [selectedCard, setSelectedCard] = useState(null)
   const [displayWinModal, setWinModal] = useState(false)
+  const [displayHowToModal, setHowToModal] = useState(false)
   const [dieRolled, setDieRolled] = useState(false)
 
   // declaring variables
@@ -209,9 +212,15 @@ function Game() {
   return (
     <div className="Game">
       <section className="modal">
-        {displayWinModal && <WinModal
-          setWinModal={setWinModal}
-          currentPlayer={currentPlayer} />}
+        <section>
+          {displayWinModal && <WinModal
+            setWinModal={setWinModal}
+            currentPlayer={currentPlayer} />}
+        </section>
+        <section>
+          {displayHowToModal && <HowToModal
+            setHowToModal={setHowToModal} />}
+        </section>
       </section>
 
       <section className="game-board">
@@ -271,6 +280,10 @@ function Game() {
             <button
               className="pass-btn action-btn"
               onClick={() => passTurn()}>PASS
+            </button>
+            <button
+              className="question-btn"
+              onClick={() => { setHowToModal(true) }}>?
             </button>
           </div>
 

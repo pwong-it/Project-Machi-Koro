@@ -26,7 +26,6 @@
   .player-boxes {
     width: 100%;
     height: 100%;
-    max-height: 90vh;
   }
 
   h1 {
@@ -42,8 +41,9 @@
   border-radius: 10px;
   border: 2px solid white;
   background-color: rgba($color: white, $alpha: 0.9);
-  padding: 2%;
+  padding: 1%;
   margin-bottom: 20px;
+  max-height: 275px;
 
 
   .name-coins {
@@ -70,7 +70,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     grid-template-rows: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 10px;
+    gap: 5px;
 
     .card {
       width: 100%;
@@ -136,7 +136,6 @@
       animation: bounce 0.6s linear;
       width: 35%;
       transition: 0.3s;
-      color: white;
       border: 4px solid white;
     }
 
@@ -146,6 +145,28 @@
 
     .pass-btn:hover {
       background-color: rgb(41, 126, 206);
+    }
+
+    .question-btn {
+      display: flex;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      width: 50px;
+      padding: 8px;
+      color: white;
+      background-color: rgba($color: black, $alpha: 0.3);
+      border-radius: 25px;
+      border: 2px solid white;
+      cursor: pointer;
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .question-btn:hover {
+      background-color: rgb(240, 220, 47);
+      animation: bounce 0.6s linear;
+      transition: 0.3s;
+      color: black;
     }
 
 
