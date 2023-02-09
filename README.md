@@ -213,7 +213,11 @@ I wanted to take a break from debugging so I played with animations! It was so m
 ![Progress Photo 41](/README_images/Progress_41.png)<br/> 
 
 Creating the shadow for the helicopter!
-![Progress Photo 41](/README_images/Progress_41.png)<br/> 
+![Progress Photo 42](/README_images/Progress_42.png)<br/> 
+
+Bug where user is able to keep rolling multiple times. This was resolved by created a useState and updating the boolean value at the proper times of the gameplay. 
+![Progress Photo 43](/README_images/Progress_43.png)<br/> 
+
 
 
 ## Post-Development 

@@ -16,7 +16,7 @@ function Game() {
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0)
   const [selectedCard, setSelectedCard] = useState(null)
   const [displayWinModal, setWinModal] = useState(false)
-
+  const [dieRolled, setDieRolled] = useState(false)
 
   // declaring variables
   const currentPlayer = players[currentPlayerIndex]
@@ -51,13 +51,15 @@ function Game() {
     document.querySelector('.gamelog').appendChild(greeting2);
   };
 
+
   const rollDie = () => {
-    if (currentPlayer) {
+    if (currentPlayer && !dieRolled) {
       const rolledNumber = Math.floor(Math.random() * 6) + 1
       const logRolledNum = document.createElement('p');
       logRolledNum.innerHTML = `${currentPlayer.name} rolled a ${rolledNumber}`;
       document.querySelector('.gamelog').appendChild(logRolledNum);
       gameLog.scrollTop = gameLog.scrollHeight
+      setDieRolled(true)
 
       // Checking for activation and adding coins balance for each player
       players.forEach((player) => {
@@ -76,6 +78,7 @@ function Game() {
           logActivation(card)
           logOptions(player)
           activationLogged = true
+
         }
       }
     })
@@ -113,6 +116,7 @@ function Game() {
     logSelection.innerHTML = `${currentPlayer.name} has selected ${event.name}. Press BUY to purchase card, or press PASS to end your turn.`
     document.querySelector('.gamelog').appendChild(logSelection)
     gameLog.scrollTop = gameLog.scrollHeight
+
   }
 
 
@@ -134,6 +138,7 @@ function Game() {
       document.querySelector('.gamelog').appendChild(logBought)
       gameLog.scrollTop = gameLog.scrollHeight
       endTurn()
+      setDieRolled(false)
     }
   }
 
@@ -166,6 +171,7 @@ function Game() {
     logNextPlayer.innerHTML = `${nextPlayer.name} is the next player. Let's Rock & ROLL!`
     document.querySelector('.gamelog').appendChild(logNextPlayer)
     gameLog.scrollTop = gameLog.scrollHeight
+    setDieRolled(false)
   }
 
   const lineBreak = () => {
