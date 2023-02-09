@@ -188,6 +188,15 @@ Win condition met! Game is able to recognise when the two landmarks have been pu
 Pass button integrated. Also displays who the next player is.
 ![Progress Photo 32](/README_images/Progress_32.png)<br/> 
 
+Images and styling for game board done. Fixed the game log where it extends down the page. 
+![Progress Photo 33](/README_images/Progress_33.png)<br/> 
+
+Added a line break so that users are able to see clearly when a new turn has started/ended. Use Google icons for added flair
+![Progress Photo 34](/README_images/Progress_34.png)<br/> 
+
+Integrated a win modal to appear as soon as the player has built the required number of landmarks.
+![Progress Photo 33](/README_images/Progress_33.png)<br/> 
+
 
 ## Post-Development
 
@@ -203,6 +212,7 @@ Pass button integrated. Also displays who the next player is.
 -   Surge - To deploy
 -   Photoshop - Image editing
 -   Sass (Syntactically Awesome Style Sheets) - Styling
+-   Google Icons
 
 ## Dependencies
 -   `npx create-react-app`

@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react"
 import './Game.scss'
 import './Cards.scss'
+import { useState, useEffect } from "react"
 import { images } from '../machi_images'
 import { useLocation } from "react-router-dom"
 import { cards } from "./Cards"
+import WinModal from './Modals/Win'
 
 function Game() {
   // Receiving the playerNames array from the playerNames modal
@@ -14,7 +15,8 @@ function Game() {
   const [players, setPlayers] = useState([])
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0)
   const [selectedCard, setSelectedCard] = useState(null)
-  const [animate, setAnimate] = useState(false)
+  const [displayWinModal, setWinModal] = useState(false)
+
 
   // declaring variables
   const currentPlayer = players[currentPlayerIndex]
@@ -24,8 +26,8 @@ function Game() {
   const createPlayers = () => {
     const newPlayers = playerNames.map(name => ({
       name: name,
-      coins: 5,
-      establishments: [cards[2], cards[3]],
+      coins: 15,
+      establishments: [cards[2], cards[3], cards[4]],
       hasLandmarkTrain: false,
       hasLandmarkShop: false,
     }))
@@ -81,7 +83,7 @@ function Game() {
   // Updating the coin balance on the page
   const updateCoinBalance = (player) => {
     const playerCoinBalance = document.querySelector(`.${player.name}-coin`)
-    playerCoinBalance.innerHTML = `${player.coins} coins`
+    playerCoinBalance.innerHTML = `${player.coins}<span class="material-symbols-outlined">monetization_on</span>`
   }
 
   // Checking Phase
@@ -121,20 +123,20 @@ function Game() {
         }
         setPlayers([...players])
       }
+      updateCoinBalance(currentPlayer)
       endTurn()
     }
   }
 
+  // Option Phase
   const endTurn = () => {
     if (currentPlayer.hasLandmarkTrain && currentPlayer.hasLandmarkShop) {
-      const declareWinner = document.createElement('h2')
-      declareWinner.innerHTML = `${currentPlayer.name} has won!`
-      document.querySelector('.gamelog').appendChild(declareWinner)
-      gameLog.scrollTop = gameLog.scrollHeight
+      setWinModal(true)
     } else {
       setCurrentPlayerIndex((currentPlayerIndex + 1) % players.length)
       const nextPlayer = players[(currentPlayerIndex + 1) % players.length]
       const logNextPlayer = document.createElement('p')
+      lineBreak()
       logNextPlayer.innerHTML = `${nextPlayer.name} is the next player. Roll away ${nextPlayer.name}!`
       document.querySelector('.gamelog').appendChild(logNextPlayer)
       gameLog.scrollTop = gameLog.scrollHeight
@@ -146,24 +148,40 @@ function Game() {
     logPass.innerHTML = `${currentPlayer.name} has chosen to pass their turn`
     document.querySelector('.gamelog').appendChild(logPass)
     setCurrentPlayerIndex((currentPlayerIndex + 1) % players.length)
+    lineBreak()
+
 
     // Logging the next player
     const nextPlayer = players[(currentPlayerIndex + 1) % players.length]
     const logNextPlayer = document.createElement('p')
-    logNextPlayer.innerHTML = `${nextPlayer.name} is the next player. Blow on the dice for extra luck!`
+    logNextPlayer.innerHTML = `${nextPlayer.name} is the next player. Let's Rock & ROLL!`
     document.querySelector('.gamelog').appendChild(logNextPlayer)
     gameLog.scrollTop = gameLog.scrollHeight
   }
 
+  const lineBreak = () => {
+    const lineBreak = document.createElement('span')
+    lineBreak.className = "material-symbols-outlined"
+    lineBreak.style.color = "grey"
+    lineBreak.innerHTML = `casino`.repeat(12)
+    document.querySelector('.gamelog').appendChild(lineBreak)
+  }
 
   useEffect(() => {
     greeting()
   }, [])
 
-
+  // useEffect(rollDie, [currentPlayer])
+  // useEffect(updateCoinBalance, [players])
 
   return (
     <div className="Game">
+      <section className="modal">
+        {displayWinModal && <WinModal
+          setWinModal={setWinModal}
+          currentPlayer={currentPlayer} />}
+      </section>
+
       <section className="game-board">
         <section className="player-boxes">
           <h1>PLAYER BOXES</h1>
@@ -174,9 +192,8 @@ function Game() {
                 <div className="left-side">
                   <div className="name-coins">
                     <h1>{`${player.name}`}</h1>
-                    <h1 className={`${player.name}-coin`}>{player.coins} <span class="material-symbols-outlined">
-                      monetization_on
-                    </span></h1>
+                    <h1 className={`${player.name}-coin`}>{player.coins}<span className='material-symbols-outlined'>monetization_on</span>
+                    </h1>
                   </div>
 
                   <div className="establishments">
@@ -238,20 +255,3 @@ function Game() {
 
 export default Game
 
-// Next Steps:
-
-// Order of procedure
-// 1. Check player turn. Assign currentPlayer 
-// 2. Player rolls die
-// 3. Get rolled number
-// 4. Loop through each player to check if each player has card that activates
-// 5. If so, for each card, use card effect (+n coins for blue cards) for that player
-// 6. Current player then has option to buy new card, or pass turn(end turn). 
-
-// When buying card
-// 7. user onClick of shop card. Checks which card was clicked on (event.target). Check if establishment or landmark card. Declare as selectedCard
-// 8. isDisabled function of purchase button checks if player coin balance >= selectedCard cost
-// 9. if true, buy button is abled. if false, console.log('not enough coins')
-// 10. If selectedCard = establishment card => purchase button onClick => buyCard(). currentPlayer.establishments.push(selectedCard)
-// 11. currentPlayer coin balance - selectedCard Cost (deductCost())
-// 12. Else purchase button onClick => buyLandMarkCard(). currentPlayer.
