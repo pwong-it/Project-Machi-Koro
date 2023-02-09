@@ -22,6 +22,11 @@ function Game() {
   const currentPlayer = players[currentPlayerIndex]
   const gameLog = document.querySelector('.gamelog')
 
+
+  useEffect(() => {
+    greeting()
+  }, [])
+
   // Creating each player's objects using the playerNames array
   const createPlayers = () => {
     const newPlayers = playerNames.map(name => ({
@@ -167,12 +172,9 @@ function Game() {
     document.querySelector('.gamelog').appendChild(lineBreak)
   }
 
-  useEffect(() => {
-    greeting()
-  }, [])
 
-  // useEffect(rollDie, [currentPlayer])
-  // useEffect(updateCoinBalance, [players])
+
+
 
   return (
     <div className="Game">

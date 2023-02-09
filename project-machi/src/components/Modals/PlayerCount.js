@@ -12,7 +12,14 @@ function PlayerModal({ setPlayerModal, playerCount }) {
     }
   }
   const navigate = useNavigate()
-  const goToGame = () => navigate('/game', { state: { playerNames } })
+  const goToGame = () => {
+    if (playerNames.every(name => name.trim().length === 0)) {
+      alert(`Please remember to enter a name for all players!`)
+      return
+    } else {
+      navigate('/game', { state: { playerNames } })
+    }
+  }
 
   const handlePlayerName = (event, index) => {
     const updatedNames = [...playerNames]
@@ -52,5 +59,6 @@ function PlayerModal({ setPlayerModal, playerCount }) {
 
 }
 
-export default PlayerModal
 
+
+export default PlayerModal

@@ -15,26 +15,26 @@ The below are the criteria set out by myself and the course that I will need to 
 -   :white_check_mark: A link to your hosted working app in the URL section of your GitHub repo
 -   :white_check_mark: A git repository hosted on GitHub, with a link to your hosted project, and frequent commits dating back to the very beginning of the project
 -   :white_check_mark: A readme.md file with:
-    -   An embedded screenshot of the app
+    -   :white_check_mark: An embedded screenshot of the app
     -   :white_check_mark: Explanations of the technologies used
     -   :white_check_mark: A couple paragraphs about the general approach you took
     -   :white_check_mark: Installation instructions for any dependencies
     -   :white_check_mark: Link to your user stories – who are your users, what do they want, and why?
     -   :white_check_mark: Link to your wireframes – sketches of major views / interfaces in your application
     -   :white_check_mark: Link to your pitch deck – documentation of your wireframes, user stories, and proposed architecture
-    -   Descriptions of any unsolved problems or major hurdles you had to overcome
+    -   :white_check_mark: Descriptions of any unsolved problems or major hurdles you had to overcome
 
 ### Technical Requirements (Minimum Viable Product)
--   The Game will need to be able to finish with one winner being determined.
+-   :white_check_mark: The Game will need to be able to finish with one winner being determined.
 -   :white_check_mark: Game will be 2-4 players
 -   :white_check_mark: Ability to input Player names at the start
--   Two of the original 4 landmarks cards to be created. 
--   Landmark cards will not have any abilities. Only first to purchase them all is enough to determine winner.
--   Only Blue Cards to be created and in play.
+-   :white_check_mark: Two of the original 4 landmarks cards to be created. 
+-   :white_check_mark: Landmark cards will not have any abilities. Only first to purchase them all is enough to determine winner.
+-   :white_check_mark: Only Blue Cards to be created and in play.
 -   :white_check_mark: Game can be played locally on one computer.
--   Finishing the game will display the winner.
--   Only 1 dice to be in play.
--   Only cards up from 1-6 will be purchasable. Some modifications to cards may be required for MVP. 
+-   :white_check_mark: Finishing the game will display the winner.
+-   :white_check_mark: Only 1 dice to be in play.
+-   :white_check_mark: Only cards up from 1-6 will be purchasable. Some modifications to cards may be required for MVP. 
 
 ### Post-MVP Extra Features
 -   Implement 2 dice function.
@@ -166,7 +166,7 @@ For some reason, after creating the gameplay function to start off the game, I w
 ![Progress Photo 21](/README_images/Progress_21.png)<br/> 
 ![Progress Photo 20](/README_images/Progress_20.png)<br/> 
 
-Struggled a long time with this bug. Was not able to get the right output from mapping through the establishment key where the value is the array of cards that the player has. At the start of the game, they would have 3 cards. It was able to recognise that the array itself has 3 elements, but it was coming out as undefined, and therefore I was not able to get the card name. 
+Struggled a long time with this bug. Was not able to get the right output from mapping through the establishment key where the value is the array of cards that the player has. At the start of the game, they would have 3 cards. It was able to recognise that the array itself has 3 elements, but it was coming out as undefined, and therefore I was not able to get the card name. <br/> 
 ![Progress Photo 23](/README_images/Progress_23.png)<br/> 
 ![Progress Photo 24](/README_images/Progress_24.png)<br/> 
 ![Progress Photo 25](/README_images/Progress_25.png)<br/> 
@@ -185,20 +185,27 @@ Able to log what the user has clicked on in the shop.
 Win condition met! Game is able to recognise when the two landmarks have been purchased. Once it does, it logs the winner at the bottom. Many bugs still to fix but finally able to reach the end of the game!!
 ![Progress Photo 31](/README_images/Progress_31.png)<br/> 
 
-Pass button integrated. Also displays who the next player is.
+Pass button integrated. Also displays who the next player is.<br/> 
 ![Progress Photo 32](/README_images/Progress_32.png)<br/> 
 
 Images and styling for game board done. Fixed the game log where it extends down the page. 
 ![Progress Photo 33](/README_images/Progress_33.png)<br/> 
 
-Added a line break so that users are able to see clearly when a new turn has started/ended. Use Google icons for added flair
+Added a line break so that users are able to see clearly when a new turn has started/ended. Use Google icons for added flair<br/> 
 ![Progress Photo 34](/README_images/Progress_34.png)<br/> 
 
 Integrated a win modal to appear as soon as the player has built the required number of landmarks.
-![Progress Photo 33](/README_images/Progress_33.png)<br/> 
+![Progress Photo 35](/README_images/Progress_35.png)<br/> 
+
+Updated Trello list.
+![Progress Photo 36](/README_images/Progress_36.png)<br/> 
+
+I was getting a big problem where users who don't put in any names at the start will go to a completely white game page. In the console, the error was that it could not find the player.name. This is because I have set it up where once on the game page, it will welcome the players and state who the first player is. Since no name was input, it completely bugged out. 
+I then worked on how to resolve this before the goToGame function takes the user to the game route. This alert is the result. 
+![Progress Photo 37](/README_images/Progress_37.png)<br/> 
 
 
-## Post-Development
+## Post-Development 
 
 
 
@@ -231,11 +238,19 @@ Integrated a win modal to appear as soon as the player has built the required nu
 ## :sunglasses: Lessons learnt
 1.  When trying to debug, copy code that is already working into the area where it does not work (if it's a similar task), then if the bug is still there, it means the issue is coming from somewhere else. This can narrow down the scope of the debugging task.
 2.  console.log, console.log, console.log!
-
+![Lessons Learnt 01](/README_images/Lessons_01.png)<br/> 
+3.  Learnt 2 new functions - .every & .trim
+    -   .every is a high order function and goes through the array. For each element in the array it checks a condition (in my case it was whether the name input had more than 0 characters), it then returns a boolean value.
+    -   .trim was used in order to get rid of any spaces '_' that the user might have input. This way, they won't just hvae an empty space for a name. 
 
 
 ## Future features
-- 
+-   Implement 2 dice function.
+-   Blue cards from 1-12
+-   Create Red Cards
+-   All 4 landmarks
+-   Green and Purple cards to be created.
+-   Game can be hosted and be played on multiple computers over the internet.
 
 ## Conclusions
 
