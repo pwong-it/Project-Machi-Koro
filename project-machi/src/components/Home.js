@@ -4,11 +4,13 @@ import { images } from '../machi_images'
 import HowToModal from "./Modals/How_To_Modal"
 import StartModal from "./Modals/Start_Modal"
 import PlayerModal from "./Modals/PlayerCount"
+import SecretModal from "./Modals/Secret"
 
 function Home() {
   const [displayHowToModal, setHowToModal] = useState(false)
   const [displayStartModal, setStartModal] = useState(false)
   const [displayPlayerModal, setPlayerModal] = useState(false)
+  const [displaySecretModal, setSecretModal] = useState(false)
   const [playerCount, setPlayerCount] = useState(0)
 
 
@@ -29,6 +31,10 @@ function Home() {
           {displayPlayerModal && <PlayerModal
             setPlayerModal={setPlayerModal}
             playerCount={playerCount} />}
+        </section>
+        <section>
+          {displaySecretModal && <SecretModal
+            setSecretModal={setSecretModal} />}
         </section>
       </section>
 
@@ -66,7 +72,10 @@ function Home() {
           alt="helicopter shadow" className="shadow" />
       </div>
       <div className="car-path">
-        <img src={images.car} alt="car driving left to right" className="car" />
+        <img
+          src={images.car}
+          alt="car driving left to right" className="car"
+          onClick={() => { setSecretModal(true) }} />
       </div>
 
     </div>

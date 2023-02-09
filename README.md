@@ -233,11 +233,12 @@ Added another button on the game page that pops up the how-to-play modal. This w
 ![Progress Photo 49](/README_images/Progress_49.png)<br/> 
 ![Progress Photo 50](/README_images/Progress_50.png)<br/> 
 
+Probably the last thing I can do before the presentation. My idea of the red car! A cool way to direct people to my github and linkedin!
+![Progress Photo 51](/README_images/Progress_51.png)<br/> 
+![Progress Photo 52](/README_images/Progress_52.png)<br/> 
 
 
 ## Post-Development 
-
-
 
 
 ## :rocket: Cool tech

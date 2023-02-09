@@ -204,3 +204,25 @@
     margin-top: 20px;
   }
 }
+
+// Secret Modal
+.secret-modal {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 200px;
+    vertical-align: bottom;
+  }
+
+  a {
+    all: unset;
+  }
+
+  .sign3,
+  .sign2 {
+    cursor: pointer;
+  }
+}
