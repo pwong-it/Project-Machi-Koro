@@ -284,4 +284,10 @@ Probably the last thing I can do before the presentation. My idea of the red car
 -   Game can be hosted and be played on multiple computers over the internet.
 
 ## Conclusions
+I put my heart and soul into this one. 
 
+Machi Koro is one of my favourite games that my friends and I play whenever we hang out together. We love it so much the little cardboard coins have worn off and we had to buy some metal gaming coins to replace them! It has such high replayability and its simple enough that anyone new will be able to understand what is happening within one turn. We also made house rules for the game and buffed/nerfed certain cards just because we know how over/under powered the cards are :)
+
+I am very proud of what I was able to accomplish in the 4 days. At the start, I was doubtful and was wondering whether I would have a project that looked nice and worked well. I kept everything at the bare minimum and once MVP was achieved, I made sure to squash any bugs that caused the app to crash. I made sure to style as I went too as it was my procrastination. I absolutely love styling my projects and I have found where I am good at and where my passion lies in software development. I could spend hours fiddling with how a button works as the user hovers over them and quite frankly, I spend nearly just as long hovering over them once I built them!
+
+Finishing this final project, I am so immensely glad that I had chosen to do this course at GA. It was definitely not easy but the class and myself pushed through day by day and we have gained so much together. I am incredibly grateful to my instructors for their patience,guidance, and enthusiasm in teaching us how to learn and problem solve. This is the most important thing as after today, we are on our own and we need to know how to keep pushing further and continuously developing. 
