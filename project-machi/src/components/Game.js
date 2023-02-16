@@ -34,8 +34,8 @@ function Game() {
   const createPlayers = () => {
     const newPlayers = playerNames.map(name => ({
       name: name,
-      coins: 15,
-      establishments: [cards[2], cards[3], cards[4]],
+      coins: 5,
+      establishments: [cards[2], cards[3]],
       hasLandmarkTrain: false,
       hasLandmarkShop: false,
     }))
