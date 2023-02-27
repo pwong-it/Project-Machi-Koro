@@ -24,7 +24,7 @@ function SecretModal({ setSecretModal }) {
         </div>
         <div className="secret-modal">
           <p>Leaving Machi City so soon? I'm up for an adventure too, and I'm happy to drive. Where shall we go? </p>
-          <img className='sign4 sign' src={images.sign4} alt="" />
+          <a href="https://philwong.com.au/" target="_blank" rel="noreferrer"><img className='sign4 sign' src={images.sign4} alt="Portfolio Link" /></a>
 
           <a href="https://www.linkedin.com/in/phil-wong/" target="_blank" rel="noreferrer"><img className='sign3 sign' src={images.sign3} alt="My linkedin" /></a>
 
